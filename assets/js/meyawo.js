@@ -1,6 +1,6 @@
 /*!
 =========================================================
-* Meyawo Landing page
+* Shiva Sharan Shrestha
 =========================================================
 
 * Copyright: 2019 DevCRUD (https://devcrud.com)
