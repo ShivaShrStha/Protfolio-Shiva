@@ -1,229 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Portfolio of Shiva Sharan Shrestha - Frontend Web Designer">
-    <meta name="author" content="Shiva Sharan Shrestha">
-    <title>Shiva Sharan Shrestha</title>
-    <!-- font icons -->
-    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <!-- Bootstrap + Meyawo main styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiva Sharan Shrestha | Creative Developer</title>
+
 </head>
+<body>
+    <!-- Header is injected at runtime from header.html -->
+    <noscript>
+        <header id="header">
+            <div class="container nav-container">
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link active">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="skills.html" class="nav-link">Skills</a></li>
+                        <li><a href="projects.html" class="nav-link">Projects</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </noscript>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-
-    <!-- Page Navbar -->
-    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
-        <div class="container">
-            <a class="logo" href="#">Developer</a>
-            <ul class="nav">
-                <li class="item">
-                    <a class="link" href="#home">Home</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#about">About</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#portfolio">Portfolio</a>
-                </li>
-                <li class="item">
-                    <a class="link" href="#contact">Contact Me</a>
-                </li>
-            </ul>
-            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
-                </div>
-            </a>
-        </div>
-    </nav><!-- End of Page Navbar -->
-
-    <!-- page header -->
-    <header id="home" class="header">
-        <div class="overlay"></div>
-        <div class="header-content container">
-            <h1 class="header-title">
-                <span class="up">HI!</span>
-                <span class="down">I am Shiva Sharan Shrestha</span>
-            </h1>
-            <p class="header-subtitle">FRONTEND WEB DESIGNER</p>
-            <button class="btn btn-primary" onclick="location.href='#portfolio'">Visit My Works</button>
-        </div>
-    </header><!-- end of page header -->
-
-    <!-- about section -->
-    <section class="section pt-0" id="about">
-        <div class="container text-center">
-            <div class="about">
-                <div class="about-img-holder">
-                    <img src="assets/imgs/Profile.png" class="about-img"
-                    alt="Shiva Sharan Shrestha -  Web Developer Portrait">
-                </div>
-                <div class="about-caption">
-                    <p class="section-subtitle">Who Am I ?</p>
-                    <h2 class="section-title mb-3">About Me</h2>
-                    <p>
-                        I am a Frontend Web Designer. Passionate about web design and development.
-                        <br>Currently working on Laravel and new technologies like Vue.js, React.js, and Angular.
-                    </p>
-                    <a href="assets/resume/ShivaPDF.pdf" class="btn-rounded btn btn-outline-primary mt-4" download>Download CV</a>
-                </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">Full Stack Developer</span>
+                <h1 class="hero-title">Forever curious, <span class="hero-accent">always creating.</span></h1>
+                <p class="hero-desc">Innovating with every line of code where passion meets progress. <span class="hero-emoji">👅</span></p>
+            </div>
+            <div class="hero-image">
+                <img src="imgs/Profile.png" alt="Profile Image">
             </div>
         </div>
-    </section> <!-- end of about section -->
+    </section>
 
-    <!-- service section -->
-    <section class="section" id="service">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Do ?</p>
-            <h6 class="section-title mb-6">Service</h6>
-            <div class="row">
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/wordpress.svg"
-                            alt="WordPress Development Icon" class="icon">
-                            <h6 class="title">WordPress</h6>
-                            <p class="subtitle">Build website from scratch</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/laravel.png"
-                            alt="Laravel Framework Icon" class="icon">
-                            <h6 class="title">Laravel</h6>
-                            <p class="subtitle">Help to make Laravel projects</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/youtube.svg"
-                            alt="YouTube Content Creation Icon" class="icon">
-                            <h6 class="title">Video Editing</h6>
-                            <p class="subtitle">Working as content creator</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <div class="body">
-                            <img src="assets/imgs/Database.png"
-                            alt="Database Management Icon" class="icon">
-                            <h6 class="title">Database</h6>
-                            <p class="subtitle">Got quite knowledge on database</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- end of service section -->
-
-    <!-- portfolio section -->
-    <section class="section" id="portfolio">
-        <div class="container text-center">
-            <p class="section-subtitle">What I Did ?</p>
-            <h6 class="section-title mb-6">Portfolio</h6>
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="https://www.threes-media.com/" class="portfolio-card">
-                        <img src="assets/imgs/ThreeSMedia logo.png" class="portfolio-card-img"
-                        alt="ThreeSMedia Website Project">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>ThreeSMedia</h4>
-                                <p class="font-weight-normal">Category: WordPress development</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="https://ssfoundationnepal.com/" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/ssfoundation nepal logo.jpg" class="img-responsive rounded"
-                        alt="SS Foundation Nepal Website Project">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>ssfoundationnepal</h4>
-                                <p class="font-weight-normal">Category: WordPress development</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="https://www.youtube.com/@ThreeSMediaPvtLtd" class="portfolio-card" target="_blank">
-                        <img src="assets/imgs/youtube.png" class="portfolio-card-img" style="width: 100%; height: auto;"
-                        alt="ThreeSMedia YouTube Channel">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>ThreeSMedia YouTube</h4>
-                                <p class="font-weight-normal">Category: Content Creator</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="https://ssgroupnepal.com/" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/dharaharatraders.png" class="img-responsive rounded"
-                        alt="Dharahara Traders Website Project">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Dharahara Traders International</h4>
-                                <p class="font-weight-normal">Category:PHP</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                 <div class="col-md-4">
-                    <a href="https://dharaharatraders.com/" class="portfolio-card">
-                        <img class="portfolio-card-img" src="assets/imgs/Dharahara.logo.png" class="img-responsive rounded"
-                        alt="Dharahara Traders Website Project">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Dharahara Traders International</h4>
-</form>                         <p class="font-weight-normal">Category:PHP</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section> <!-- end of portfolio section -->
-
-<!-- footer -->
-<div class="container" id="contact">
-    <footer class="footer">
-        <p class="mb-0">Copyright
-            <script>document.write(new Date().getFullYear())</script> &copy; <a
-                href=""></a> <a
-                href="">Shiva Sharan Shrestha</a>
-        </p>
-        <div class="social-links text-right m-auto ml-sm-auto">
-            <a href="https://www.facebook.com/shiva.sharanshrestha.9" class="link" target="_blank"><i class="ti-facebook"></i></a>
-            <a href="https://github.com/ShivaShrStha" class="link" target="_blank"><i class="ti-github"></i></a>
-            <a href="https://wa.me/9779818082311" class="link" target="_blank"><i class="ti-mobile"></i></a>
-            <a href="https://t.me/9818082311" class="link" target="_blank"><i class="ti-comment-alt"></i></a>
-            <a href="https://www.instagram.com/shivashr05/" class="link" target="_blank"><i class="ti-instagram"></i></a>
-            <a href="mailto:shivasharanshrestha20@gmail.com" class="link"><i class="ti-email"></i></a>
-        </div>
-    </footer>
-</div> <!-- end of page footer -->
-
-    <!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
-
-    <!-- bootstrap 3 affix -->
-    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
-
-    <!-- Main js -->
-    <script src="assets/js/main.js"></script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Shiva Sharan Shrestha</title>
+
+</head>
+<body>
+    <!-- Header is injected from header.html at runtime for consistency and sticky behavior -->
+    <noscript>
+        <header id="header">
+            <div class="container nav-container">
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
+                        <li><a href="skills.html" class="nav-link">Skills</a></li>
+                        <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </noscript>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header animate">
+                <h2 class="section-title">My Projects</h2>
+                <p class="section-subtitle">A collection of my recent work</p>
+            </div>
+
+            <div class="projects-filters animate">
+                <div class="filter-btn active" data-filter="all">All</div>
+                <div class="filter-btn" data-filter="web">Web Development</div>
+            </div>
+
+            <div class="projects-container">
+                <div class="card-flipper" id="cardFlipper">
+                    <div class="project-card active" data-category="web">
+                        <div class="project-image">
+                            <img src="imgs/ThreeSMedia logo.png" alt="Three-Media News Website">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://www.threes-media.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category">News & Media Website</div>
+                            <h3 class="project-title">Three-Media</h3>
+                            <p class="project-desc">A comprehensive Nepali news portal featuring interviews with local government officials, economic analysis, health awareness content, cyber security discussions, and climate change coverage. Built with modern CMS and responsive design.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="imgs/ssfoundationnepal.png" alt="SS Foundation Nepal">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://ssfoundationnepal.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category">NGO & Charity Website</div>
+                            <h3 class="project-title">SS Foundation Nepal</h3>
+                            <p class="project-desc">Non-profit organization website focused on child welfare in Nepal. Features donation management, volunteer coordination, educational support programs, and community outreach initiatives. Includes news updates and impact tracking.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="imgs/Dharahara.logo.png" alt="Dharahara Traders">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://dharaharatraders.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category">E-commerce & Trading</div>
+                            <h3 class="project-title">Dharahara Traders</h3>
+                            <p class="project-desc">Professional trading company website specializing in medical equipment, cosmetics, herbs, surgical instruments, and electronics. Features product catalog, WhatsApp integration, inquiry forms, and global import-export solutions.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="imgs/nexa.jpeg" alt="Nexa Education Consultancy">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://nexaeduconsult.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category">Education Consultancy</div>
+                            <h3 class="project-title">Nexa Education Consultancy</h3>
+                            <p class="project-desc">Educational consultancy platform for Nepali students pursuing studies in Japan. Features university admissions guidance, visa support, Japanese language preparation, career pathways in technology, healthcare, and business sectors.</p>
+                        </div>
+                    </div>
+                    <div class="project-card" data-category="web">
+                        <div class="project-image">
+                            <img src="imgs/SS Group Nepal.png" alt="SS Group Nepal">
+                            <div class="project-overlay">
+                                <div class="project-actions">
+                                    <a href="https://ssgroupnepal.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
+                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-category">Business Group Website</div>
+                            <h3 class="project-title">SS Group Nepal</h3>
+                            <p class="project-desc">Corporate website for a diversified business group including hydropower development, agriculture, education, trading, and film production. Features company portfolio, web solutions, and business consultancy services.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swipe Hint -->
+                <div class="swipe-hint-mobile">
+                    <i class="fas fa-arrows-alt-h"></i>
+                    <span>Swipe left/right to navigate</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+    <script>
+        class CardFlipper {
+            constructor() {
+                this.flipper = document.getElementById('cardFlipper');
+                this.cards = Array.from(document.querySelectorAll('.project-card'));
+                this.currentIndex = 0;
+                this.isAnimating = false;
+                this.touchStartX = 0;
+                this.touchStartY = 0;
+                this.touchEndX = 0;
+                this.touchEndY = 0;
+                this.swipeThreshold = 50;
+
+                // Only initialize card flipping on mobile/tablet
+                if (window.innerWidth < 1024) {
+                    this.init();
+                    this.updateUI();
+                }
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.showCard(0);
+            }
+
+            setupEventListeners() {
+                // Only add event listeners on mobile/tablet
+                if (window.innerWidth >= 1024) return;
+
+                this.flipper.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: false });
+                this.flipper.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
+                this.flipper.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: false });
+                this.flipper.addEventListener('mousedown', this.handleMouseDown.bind(this));
+                document.addEventListener('mousemove', this.handleMouseMove.bind(this));
+                document.addEventListener('mouseup', this.handleMouseUp.bind(this));
+                document.addEventListener('keydown', this.handleKeyPress.bind(this));
+            }
+
+            updateUI() {
+                // Only update UI on mobile/tablet
+                if (window.innerWidth >= 1024) return;
+
+                // Update UI elements if needed
+            }
+
+            showCard(index, direction = 'none') {
+                if (this.isAnimating) return;
+
+                this.isAnimating = true;
+                const previousIndex = this.currentIndex;
+                this.currentIndex = index;
+
+                // Reset all cards
+                this.cards.forEach((card, i) => {
+                    card.classList.remove('active', 'prev', 'next', 'flipping-left', 'flipping-right');
+                    if (i === index) {
+                        card.classList.add('active');
+                    }
+                });
+
+                // Add flip animation if direction is specified
+                if (direction === 'left' && previousIndex !== index) {
+                    this.cards[previousIndex].classList.add('flipping-left');
+                } else if (direction === 'right' && previousIndex !== index) {
+                    this.cards[previousIndex].classList.add('flipping-right');
+                }
+
+                // Update UI after animation
+                setTimeout(() => {
+                    this.isAnimating = false;
+                }, 600);
+            }
+
+            next() {
+                if (this.currentIndex < this.cards.length - 1) {
+                    this.showCard(this.currentIndex + 1, 'left');
+                }
+            }
+
+            previous() {
+                if (this.currentIndex > 0) {
+                    this.showCard(this.currentIndex - 1, 'right');
+                }
+            }
+
+            handleTouchStart(e) {
+                this.touchStartX = e.touches[0].clientX;
+                this.touchStartY = e.touches[0].clientY;
+            }
+
+            handleTouchMove(e) {
+                if (!this.touchStartX || !this.touchStartY) return;
+
+                this.touchEndX = e.touches[0].clientX;
+                this.touchEndY = e.touches[0].clientY;
+
+                e.preventDefault();
+            }
+
+            handleTouchEnd(e) {
+                if (!this.touchStartX || !this.touchEndX) return;
+
+                const deltaX = this.touchEndX - this.touchStartX;
+                const deltaY = this.touchEndY - this.touchStartY;
+                const absDeltaX = Math.abs(deltaX);
+                const absDeltaY = Math.abs(deltaY);
+
+                // Determine swipe direction
+                if (absDeltaX > absDeltaY && absDeltaX > this.swipeThreshold) {
+                    if (deltaX > 0) {
+                        this.previous(); // Swipe right = previous
+                    } else {
+                        this.next(); // Swipe left = next
+                    }
+                }
+
+                // Reset touch coordinates
+                this.touchStartX = this.touchStartY = this.touchEndX = this.touchEndY = 0;
+            }
+
+            handleMouseDown(e) {
+                this.touchStartX = e.clientX;
+                this.touchStartY = e.clientY;
+                this.flipper.style.cursor = 'grabbing';
+            }
+
+            handleMouseMove(e) {
+                if (!this.touchStartX) return;
+                this.touchEndX = e.clientX;
+                this.touchEndY = e.clientY;
+            }
+
+            handleMouseUp(e) {
+                if (!this.touchStartX || !this.touchEndX) {
+                    this.flipper.style.cursor = 'pointer';
+                    return;
+                }
+
+                const deltaX = this.touchEndX - this.touchStartX;
+                const deltaY = this.touchEndY - this.touchStartY;
+                const absDeltaX = Math.abs(deltaX);
+                const absDeltaY = Math.abs(deltaY);
+
+                if (absDeltaX > absDeltaY && absDeltaX > this.swipeThreshold) {
+                    if (deltaX > 0) {
+                        this.previous();
+                    } else {
+                        this.next();
+                    }
+                }
+
+                this.flipper.style.cursor = 'pointer';
+                this.touchStartX = this.touchStartY = this.touchEndX = this.touchEndY = 0;
+            }
+
+            handleKeyPress(e) {
+                switch(e.key) {
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        this.previous();
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        this.next();
+                        break;
+                    case 'Home':
+                        e.preventDefault();
+                        this.showCard(0);
+                        break;
+                    case 'End':
+                        e.preventDefault();
+                        this.showCard(this.cards.length - 1);
+                        break;
+                }
+            }
+        }
+
+        // Initialize card flipper when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const cardFlipper = new CardFlipper();
+
+            // Enhanced filter functionality with card flipper integration
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+
+            // Initial setup - show all cards on desktop, card-flipping on mobile
+            function initializeView() {
+                if (window.innerWidth >= 1024) {
+                    // Desktop grid view - let CSS handle the grid layout
+                    projectCards.forEach(card => {
+                        card.style.display = ''; // Remove inline styles to let CSS take over
+                        card.classList.remove('active', 'prev', 'next', 'flipping-left', 'flipping-right');
+                    });
+                } else {
+                    // Mobile card-flipping view
+                    cardFlipper.showCard(cardFlipper.currentIndex);
+                }
+            }
+
+            // Call initial setup
+            initializeView();
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterValue = this.getAttribute('data-filter');
+
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Filter cards
+                    let visibleCards = [];
+                    projectCards.forEach((card, index) => {
+                        const category = card.getAttribute('data-category');
+
+                        if (filterValue === 'all' || category === filterValue) {
+                            if (window.innerWidth >= 1024) {
+                                // Desktop: let CSS grid handle visibility
+                                card.style.display = '';
+                                card.classList.remove('filtered-out');
+                            } else {
+                                // Mobile: show in card flipper
+                                card.style.display = 'block';
+                            }
+                            visibleCards.push(index);
+                        } else {
+                            // Hide filtered out cards
+                            card.style.display = 'none';
+                            card.classList.add('filtered-out');
+                        }
+                    });
+
+                    // Reset to first visible card (only for mobile card-flipping view)
+                    if (visibleCards.length > 0 && window.innerWidth < 1024) {
+                        cardFlipper.currentIndex = 0;
+                        cardFlipper.showCard(0);
+                    }
+                });
+            });
+
+            // Add visual feedback for card interactions
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = 'scale(0.95)';
+                    }
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = '';
+                    }
+                });
+            });
+
+            // Handle window resize to switch between grid and card-flipping views
+            window.addEventListener('resize', function() {
+                initializeView();
+            });
+        });
+    </script>
+</body>
+</html>
