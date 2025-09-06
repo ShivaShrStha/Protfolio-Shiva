@@ -1794,30 +1794,30 @@
 
         /* Floating Social Icons */
         .floating-social {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            position: fixed !important;
+            right: 20px !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            z-index: 9999 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 15px !important;
         }
 
         .floating-social .social-link {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
-            animation: float 3s ease-in-out infinite;
+            width: 50px !important;
+            height: 50px !important;
+            background: #2563eb !important;
+            color: white !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-decoration: none !important;
+            font-size: 1.2rem !important;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3) !important;
+            animation: float 3s ease-in-out infinite !important;
         }
 
         .floating-social .social-link:nth-child(1) { animation-delay: 0s; }
@@ -1832,51 +1832,51 @@
 
         /* Social Media Brand Colors */
         .floating-social .social-link.github {
-            background: #333;
+            background: #333 !important;
         }
         .floating-social .social-link.github:hover {
-            background: #24292e;
-            box-shadow: 0 8px 30px rgba(51, 51, 51, 0.5);
+            background: #24292e !important;
+            box-shadow: 0 8px 30px rgba(51, 51, 51, 0.5) !important;
         }
 
         .floating-social .social-link.linkedin {
-            background: #0077b5;
+            background: #0077b5 !important;
         }
         .floating-social .social-link.linkedin:hover {
-            background: #005582;
-            box-shadow: 0 8px 30px rgba(0, 119, 181, 0.5);
+            background: #005582 !important;
+            box-shadow: 0 8px 30px rgba(0, 119, 181, 0.5) !important;
         }
 
         .floating-social .social-link.email {
-            background: #ea4335;
+            background: #ea4335 !important;
         }
         .floating-social .social-link.email:hover {
-            background: #d33b2c;
-            box-shadow: 0 8px 30px rgba(234, 67, 53, 0.5);
+            background: #d33b2c !important;
+            box-shadow: 0 8px 30px rgba(234, 67, 53, 0.5) !important;
         }
 
         .floating-social .social-link.facebook {
-            background: #1877f2;
+            background: #1877f2 !important;
         }
         .floating-social .social-link.facebook:hover {
-            background: #166fe5;
-            box-shadow: 0 8px 30px rgba(24, 119, 242, 0.5);
+            background: #166fe5 !important;
+            box-shadow: 0 8px 30px rgba(24, 119, 242, 0.5) !important;
         }
 
         .floating-social .social-link.instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
         }
         .floating-social .social-link.instagram:hover {
-            background: linear-gradient(45deg, #e8842a 0%, #dd5a33 25%, #d31e3a 50%, #c31a5d 75%, #b3157f 100%);
-            box-shadow: 0 8px 30px rgba(240, 148, 51, 0.5);
+            background: linear-gradient(45deg, #e8842a 0%, #dd5a33 25%, #d31e3a 50%, #c31a5d 75%, #b3157f 100%) !important;
+            box-shadow: 0 8px 30px rgba(240, 148, 51, 0.5) !important;
         }
 
         .floating-social .social-link.whatsapp {
-            background: #25d366;
+            background: #25d366 !important;
         }
         .floating-social .social-link.whatsapp:hover {
-            background: #20bd5a;
-            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+            background: #20bd5a !important;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5) !important;
         }
 
         @keyframes float {
