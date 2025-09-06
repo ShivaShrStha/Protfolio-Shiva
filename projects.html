@@ -3,394 +3,409 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Shiva Sharan Shrestha</title>
-
+    <title>Shiva Sharan Shrestha - Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header is injected from header.html at runtime for consistency and sticky behavior -->
-    <noscript>
-        <header id="header">
-            <div class="container nav-container">
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="index.html" class="nav-link">Home</a></li>
-                        <li><a href="about.html" class="nav-link">About</a></li>
-                        <li><a href="skills.html" class="nav-link">Skills</a></li>
-                        <li><a href="projects.html" class="nav-link active">Projects</a></li>
-                        <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    </noscript>
+    <!-- Header injected via JS for consistency -->
+    <div id="header-placeholder"></div>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section id="projects" class="section" role="main" aria-labelledby="projects-title">
         <div class="container">
             <div class="section-header animate">
-                <h2 class="section-title">My Projects</h2>
-                <p class="section-subtitle">A collection of my recent work</p>
+                <h2 id="projects-title" class="section-title">My Projects</h2>
+                <p class="section-subtitle">A showcase of innovative web solutions</p>
             </div>
 
-            <div class="projects-filters animate">
-                <div class="filter-btn active" data-filter="all">All</div>
-                <div class="filter-btn" data-filter="web">Web Development</div>
+            <!-- Filters -->
+            <div class="projects-filters animate" role="group" aria-label="Project filters">
+                <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
             </div>
 
+            <!-- Dark mode removed per user preference -->
+
+            <!-- Projects Grid -->
             <div class="projects-container">
-                <div class="card-flipper" id="cardFlipper">
-                    <div class="project-card active" data-category="web">
-                        <div class="project-image">
-                            <img src="imgs/ThreeSMedia logo.png" alt="Three-Media News Website">
+                <div class="projects-grid" role="list" aria-label="Project list">
+                    <!-- Project Card 1 -->
+                    <div class="project-card animate" data-category="web" role="listitem" tabindex="0">
+                        <div class="project-image-container">
+                            <img src="imgs/ThreeSMedia logo.png" alt="Three-Media News Website" loading="lazy">
                             <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="https://www.threes-media.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
-                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                <div class="project-category-badge">
+                                    <i class="fas fa-newspaper"></i>
+                                    <span>News & Media</span>
+                                </div>
+                                <div class="project-tech-stack">
+                                    <span class="tech-item">WordPress</span>
+                                    <span class="tech-item">PHP</span>
+                                    <span class="tech-item">MySQL</span>
                                 </div>
                             </div>
                         </div>
                         <div class="project-content">
-                            <div class="project-category">News & Media Website</div>
-                            <h3 class="project-title">Three-Media</h3>
-                            <p class="project-desc">A comprehensive Nepali news portal featuring interviews with local government officials, economic analysis, health awareness content, cyber security discussions, and climate change coverage. Built with modern CMS and responsive design.</p>
+                            <div class="project-header">
+                                <h3 class="project-title">Three-Media News Portal</h3>
+                                <div class="project-year">2024</div>
+                            </div>
+                            <p class="project-description">Comprehensive Nepali news platform with modern CMS architecture.</p>
+                            <div class="project-actions">
+                                <a href="https://www.threes-media.com/" class="project-btn primary" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="imgs/ssfoundationnepal.png" alt="SS Foundation Nepal">
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card animate" data-category="web" role="listitem" tabindex="0">
+                        <div class="project-image-container">
+                            <img src="imgs/ssfoundationnepal.png" alt="SS Foundation Nepal" loading="lazy">
                             <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="https://ssfoundationnepal.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
-                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                <div class="project-category-badge">
+                                    <i class="fas fa-heart"></i>
+                                    <span>NGO Platform</span>
+                                </div>
+                                <div class="project-tech-stack">
+                                    <span class="tech-item">WordPress</span>
+                                    <span class="tech-item">PHP</span>
+                                    <span class="tech-item">Donation API</span>
                                 </div>
                             </div>
                         </div>
                         <div class="project-content">
-                            <div class="project-category">NGO & Charity Website</div>
-                            <h3 class="project-title">SS Foundation Nepal</h3>
-                            <p class="project-desc">Non-profit organization website focused on child welfare in Nepal. Features donation management, volunteer coordination, educational support programs, and community outreach initiatives. Includes news updates and impact tracking.</p>
+                            <div class="project-header">
+                                <h3 class="project-title">SS Foundation Nepal</h3>
+                                <div class="project-year">2024</div>
+                            </div>
+                            <p class="project-description">Child welfare NGO with donation management and volunteer coordination.</p>
+                            <div class="project-actions">
+                                <a href="https://ssfoundationnepal.com/" class="project-btn primary" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="imgs/Dharahara.logo.png" alt="Dharahara Traders">
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card animate" data-category="web" role="listitem" tabindex="0">
+                        <div class="project-image-container">
+                            <img src="imgs/Dharahara.logo.png" alt="Dharahara Traders" loading="lazy">
                             <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="https://dharaharatraders.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
-                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                <div class="project-category-badge">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span>E-commerce</span>
+                                </div>
+                                <div class="project-tech-stack">
+                                    <span class="tech-item">E-commerce</span>
+                                    <span class="tech-item">WhatsApp API</span>
+                                    <span class="tech-item">React</span>
                                 </div>
                             </div>
                         </div>
                         <div class="project-content">
-                            <div class="project-category">E-commerce & Trading</div>
-                            <h3 class="project-title">Dharahara Traders</h3>
-                            <p class="project-desc">Professional trading company website specializing in medical equipment, cosmetics, herbs, surgical instruments, and electronics. Features product catalog, WhatsApp integration, inquiry forms, and global import-export solutions.</p>
+                            <div class="project-header">
+                                <h3 class="project-title">Dharahara Traders</h3>
+                                <div class="project-year">2024</div>
+                            </div>
+                            <p class="project-description">Trading platform for medical equipment with WhatsApp integration.</p>
+                            <div class="project-actions">
+                                <a href="https://dharaharatraders.com/" class="project-btn primary" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="imgs/nexa.jpeg" alt="Nexa Education Consultancy">
+
+                    <!-- Project Card 4 -->
+                    <div class="project-card animate" data-category="web" role="listitem" tabindex="0">
+                        <div class="project-image-container">
+                            <img src="imgs/nexa.jpeg" alt="Nexa Education Consultancy" loading="lazy">
                             <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="https://nexaeduconsult.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
-                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                <div class="project-category-badge">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Education</span>
+                                </div>
+                                <div class="project-tech-stack">
+                                    <span class="tech-item">Education</span>
+                                    <span class="tech-item">CMS</span>
+                                    <span class="tech-item">Analytics</span>
                                 </div>
                             </div>
                         </div>
                         <div class="project-content">
-                            <div class="project-category">Education Consultancy</div>
-                            <h3 class="project-title">Nexa Education Consultancy</h3>
-                            <p class="project-desc">Educational consultancy platform for Nepali students pursuing studies in Japan. Features university admissions guidance, visa support, Japanese language preparation, career pathways in technology, healthcare, and business sectors.</p>
+                            <div class="project-header">
+                                <h3 class="project-title">Nexa Education Consultancy</h3>
+                                <div class="project-year">2024</div>
+                            </div>
+                            <p class="project-description">Educational consultancy for Japanese universities with visa support.</p>
+                            <div class="project-actions">
+                                <a href="https://nexaeduconsult.com/" class="project-btn primary" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="project-card" data-category="web">
-                        <div class="project-image">
-                            <img src="imgs/SS Group Nepal.png" alt="SS Group Nepal">
+
+                    <!-- Project Card 5 -->
+                    <div class="project-card animate" data-category="web" role="listitem" tabindex="0">
+                        <div class="project-image-container">
+                            <img src="imgs/SS Group Nepal.png" alt="SS Group Nepal" loading="lazy">
                             <div class="project-overlay">
-                                <div class="project-actions">
-                                    <a href="https://ssgroupnepal.com/" class="project-action" target="_blank"><i class="fas fa-link"></i></a>
-                                    <a href="#" class="project-action"><i class="fas fa-eye"></i></a>
+                                <div class="project-category-badge">
+                                    <i class="fas fa-building"></i>
+                                    <span>Business Group</span>
+                                </div>
+                                <div class="project-tech-stack">
+                                    <span class="tech-item">Corporate</span>
+                                    <span class="tech-item">Portfolio</span>
+                                    <span class="tech-item">Multi-sector</span>
                                 </div>
                             </div>
                         </div>
                         <div class="project-content">
-                            <div class="project-category">Business Group Website</div>
-                            <h3 class="project-title">SS Group Nepal</h3>
-                            <p class="project-desc">Corporate website for a diversified business group including hydropower development, agriculture, education, trading, and film production. Features company portfolio, web solutions, and business consultancy services.</p>
+                            <div class="project-header">
+                                <h3 class="project-title">SS Group Nepal</h3>
+                                <div class="project-year">2024</div>
+                            </div>
+                            <p class="project-description">Diversified business group showcasing multiple industries.</p>
+                            <div class="project-actions">
+                                <a href="https://ssgroupnepal.com/" class="project-btn primary" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Swipe Hint -->
-                <div class="swipe-hint-mobile">
-                    <i class="fas fa-arrows-alt-h"></i>
-                    <span>Swipe left/right to navigate</span>
+            <!-- Project Details Modal -->
+            <div id="projectModal" class="project-modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="modalTitle">Project Details</h3>
+                        <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div id="modalBody" class="modal-body"></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Floating Social Icons -->
+    <div class="floating-social">
+        <a href="https://github.com/ShivaShrStha" class="social-link github" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/YourLinkedIn" class="social-link linkedin" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="mailto:shivasharanbrt@gmail.com" class="social-link email" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.facebook.com/yourprofile" class="social-link facebook" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+
     <script src="script.js"></script>
-
     <script>
-        class CardFlipper {
-            constructor() {
-                this.flipper = document.getElementById('cardFlipper');
-                this.cards = Array.from(document.querySelectorAll('.project-card'));
-                this.currentIndex = 0;
-                this.isAnimating = false;
-                this.touchStartX = 0;
-                this.touchStartY = 0;
-                this.touchEndX = 0;
-                this.touchEndY = 0;
-                this.swipeThreshold = 50;
-
-                // Only initialize card flipping on mobile/tablet
-                if (window.innerWidth < 1024) {
-                    this.init();
-                    this.updateUI();
-                }
-            }
-
-            init() {
-                this.setupEventListeners();
-                this.showCard(0);
-            }
-
-            setupEventListeners() {
-                // Only add event listeners on mobile/tablet
-                if (window.innerWidth >= 1024) return;
-
-                this.flipper.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: false });
-                this.flipper.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
-                this.flipper.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: false });
-                this.flipper.addEventListener('mousedown', this.handleMouseDown.bind(this));
-                document.addEventListener('mousemove', this.handleMouseMove.bind(this));
-                document.addEventListener('mouseup', this.handleMouseUp.bind(this));
-                document.addEventListener('keydown', this.handleKeyPress.bind(this));
-            }
-
-            updateUI() {
-                // Only update UI on mobile/tablet
-                if (window.innerWidth >= 1024) return;
-
-                // Update UI elements if needed
-            }
-
-            showCard(index, direction = 'none') {
-                if (this.isAnimating) return;
-
-                this.isAnimating = true;
-                const previousIndex = this.currentIndex;
-                this.currentIndex = index;
-
-                // Reset all cards
-                this.cards.forEach((card, i) => {
-                    card.classList.remove('active', 'prev', 'next', 'flipping-left', 'flipping-right');
-                    if (i === index) {
-                        card.classList.add('active');
-                    }
-                });
-
-                // Add flip animation if direction is specified
-                if (direction === 'left' && previousIndex !== index) {
-                    this.cards[previousIndex].classList.add('flipping-left');
-                } else if (direction === 'right' && previousIndex !== index) {
-                    this.cards[previousIndex].classList.add('flipping-right');
-                }
-
-                // Update UI after animation
-                setTimeout(() => {
-                    this.isAnimating = false;
-                }, 600);
-            }
-
-            next() {
-                if (this.currentIndex < this.cards.length - 1) {
-                    this.showCard(this.currentIndex + 1, 'left');
-                }
-            }
-
-            previous() {
-                if (this.currentIndex > 0) {
-                    this.showCard(this.currentIndex - 1, 'right');
-                }
-            }
-
-            handleTouchStart(e) {
-                this.touchStartX = e.touches[0].clientX;
-                this.touchStartY = e.touches[0].clientY;
-            }
-
-            handleTouchMove(e) {
-                if (!this.touchStartX || !this.touchStartY) return;
-
-                this.touchEndX = e.touches[0].clientX;
-                this.touchEndY = e.touches[0].clientY;
-
-                e.preventDefault();
-            }
-
-            handleTouchEnd(e) {
-                if (!this.touchStartX || !this.touchEndX) return;
-
-                const deltaX = this.touchEndX - this.touchStartX;
-                const deltaY = this.touchEndY - this.touchStartY;
-                const absDeltaX = Math.abs(deltaX);
-                const absDeltaY = Math.abs(deltaY);
-
-                // Determine swipe direction
-                if (absDeltaX > absDeltaY && absDeltaX > this.swipeThreshold) {
-                    if (deltaX > 0) {
-                        this.previous(); // Swipe right = previous
-                    } else {
-                        this.next(); // Swipe left = next
-                    }
-                }
-
-                // Reset touch coordinates
-                this.touchStartX = this.touchStartY = this.touchEndX = this.touchEndY = 0;
-            }
-
-            handleMouseDown(e) {
-                this.touchStartX = e.clientX;
-                this.touchStartY = e.clientY;
-                this.flipper.style.cursor = 'grabbing';
-            }
-
-            handleMouseMove(e) {
-                if (!this.touchStartX) return;
-                this.touchEndX = e.clientX;
-                this.touchEndY = e.clientY;
-            }
-
-            handleMouseUp(e) {
-                if (!this.touchStartX || !this.touchEndX) {
-                    this.flipper.style.cursor = 'pointer';
-                    return;
-                }
-
-                const deltaX = this.touchEndX - this.touchStartX;
-                const deltaY = this.touchEndY - this.touchStartY;
-                const absDeltaX = Math.abs(deltaX);
-                const absDeltaY = Math.abs(deltaY);
-
-                if (absDeltaX > absDeltaY && absDeltaX > this.swipeThreshold) {
-                    if (deltaX > 0) {
-                        this.previous();
-                    } else {
-                        this.next();
-                    }
-                }
-
-                this.flipper.style.cursor = 'pointer';
-                this.touchStartX = this.touchStartY = this.touchEndX = this.touchEndY = 0;
-            }
-
-            handleKeyPress(e) {
-                switch(e.key) {
-                    case 'ArrowLeft':
-                        e.preventDefault();
-                        this.previous();
-                        break;
-                    case 'ArrowRight':
-                        e.preventDefault();
-                        this.next();
-                        break;
-                    case 'Home':
-                        e.preventDefault();
-                        this.showCard(0);
-                        break;
-                    case 'End':
-                        e.preventDefault();
-                        this.showCard(this.cards.length - 1);
-                        break;
-                }
-            }
-        }
-
-        // Initialize card flipper when DOM is loaded
+        // Enhanced JS for interactions (integrate with script.js)
         document.addEventListener('DOMContentLoaded', function() {
-            const cardFlipper = new CardFlipper();
-
-            // Enhanced filter functionality with card flipper integration
+            // Filter functionality
             const filterButtons = document.querySelectorAll('.filter-btn');
             const projectCards = document.querySelectorAll('.project-card');
 
-            // Initial setup - show all cards on desktop, card-flipping on mobile
-            function initializeView() {
-                if (window.innerWidth >= 1024) {
-                    // Desktop grid view - let CSS handle the grid layout
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    const filterValue = this.getAttribute('data-filter');
                     projectCards.forEach(card => {
-                        card.style.display = ''; // Remove inline styles to let CSS take over
-                        card.classList.remove('active', 'prev', 'next', 'flipping-left', 'flipping-right');
+                        const category = card.getAttribute('data-category');
+                        card.style.display = (filterValue === 'all' || filterValue === category) ? 'block' : 'none';
                     });
-                } else {
-                    // Mobile card-flipping view
-                    cardFlipper.showCard(cardFlipper.currentIndex);
+                });
+            });
+
+            // Dark mode removed from UI - no toggle present
+
+            // Modal functionality (as in original)
+            function showProjectDetails(projectId) {
+                const modal = document.getElementById('projectModal');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalBody = document.getElementById('modalBody');
+
+                const projectDetails = {
+                    'threes-media': {
+                        title: 'Three-Media News Portal',
+                        description: 'A comprehensive Nepali news platform featuring government interviews, economic analysis, health awareness, and climate coverage.',
+                        technologies: ['WordPress', 'PHP', 'MySQL', 'JavaScript', 'CSS3'],
+                        features: [
+                            'Real-time news updates',
+                            'Government official interviews',
+                            'Economic analysis section',
+                            'Health awareness campaigns',
+                            'Cyber security discussions',
+                            'Climate change coverage',
+                            'Mobile-responsive design',
+                            'SEO optimized'
+                        ],
+                        challenges: 'Implementing real-time content management while maintaining fast loading speeds.',
+                        results: '50K+ monthly visitors, 100% mobile responsive, featured in major Nepali media outlets.'
+                    },
+                    'ss-foundation': {
+                        title: 'SS Foundation Nepal',
+                        description: 'Child welfare NGO website with donation management and volunteer coordination.',
+                        technologies: ['WordPress', 'PHP', 'Donation API', 'MySQL', 'JavaScript'],
+                        features: [
+                            'Online donation system',
+                            'Volunteer management portal',
+                            'Impact tracking dashboard',
+                            'News and updates section',
+                            'Event management',
+                            'Photo gallery',
+                            'Contact forms',
+                            'Social media integration'
+                        ],
+                        challenges: 'Creating a secure donation system with transparent fund tracking.',
+                        results: '500+ active volunteers, successful donation campaigns, increased community engagement.'
+                    },
+                    'dharahara': {
+                        title: 'Dharahara Traders',
+                        description: 'Professional trading platform for medical equipment and electronics.',
+                        technologies: ['E-commerce Platform', 'WhatsApp API', 'React', 'Node.js', 'MongoDB'],
+                        features: [
+                            'Product catalog management',
+                            'WhatsApp business integration',
+                            'Inquiry management system',
+                            'Multi-language support',
+                            'Payment gateway integration',
+                            'Inventory management',
+                            'Customer reviews',
+                            'Analytics dashboard'
+                        ],
+                        challenges: 'Integrating WhatsApp API for seamless customer communication.',
+                        results: '1000+ products listed, 50+ countries reached, significant increase in international sales.'
+                    },
+                    'nexa': {
+                        title: 'Nexa Education Consultancy',
+                        description: 'Educational consultancy for Nepali students pursuing Japanese universities.',
+                        technologies: ['WordPress', 'PHP', 'Analytics', 'CRM Integration', 'MySQL'],
+                        features: [
+                            'University admission guidance',
+                            'Visa application support',
+                            'Japanese language courses',
+                            'Career counseling',
+                            'Student testimonials',
+                            'Application tracking',
+                            'Document verification',
+                            'Success stories'
+                        ],
+                        challenges: 'Managing complex visa application processes and keeping up with changing requirements.',
+                        results: '200+ successful student placements, 95% visa success rate, partnerships with 20+ Japanese universities.'
+                    },
+                    'ss-group': {
+                        title: 'SS Group Nepal',
+                        description: 'Diversified business group website showcasing multiple industries.',
+                        technologies: ['Corporate CMS', 'PHP', 'MySQL', 'JavaScript', 'CSS3'],
+                        features: [
+                            'Multi-sector portfolio',
+                            'Company history timeline',
+                            'Leadership profiles',
+                            'Industry showcases',
+                            'News and announcements',
+                            'Career opportunities',
+                            'Contact and locations',
+                            'Business solutions'
+                        ],
+                        challenges: 'Presenting diverse business sectors in a cohesive and engaging manner.',
+                        results: 'Enhanced brand visibility, increased business inquiries, improved stakeholder communication.'
+                    }
+                };
+
+                const project = projectDetails[projectId];
+                if (project) {
+                    modalTitle.textContent = project.title;
+                    modalBody.innerHTML = `
+                        <div class="project-detail-content">
+                            <div class="detail-section">
+                                <h4>Project Overview</h4>
+                                <p>${project.description}</p>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4>Technologies Used</h4>
+                                <div class="tech-list">
+                                    ${project.technologies.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4>Key Features</h4>
+                                <ul class="features-list">
+                                    ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4>Challenges & Solutions</h4>
+                                <p>${project.challenges}</p>
+                            </div>
+
+                            <div class="detail-section">
+                                <h4>Results & Impact</h4>
+                                <p>${project.results}</p>
+                            </div>
+                        </div>
+                    `;
+                    modal.style.display = 'flex';
+                    modal.setAttribute('aria-hidden', 'false');
                 }
             }
 
-            // Call initial setup
-            initializeView();
+            function closeProjectModal() {
+                const modal = document.getElementById('projectModal');
+                modal.style.display = 'none';
+                modal.setAttribute('aria-hidden', 'true');
+            }
 
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const filterValue = this.getAttribute('data-filter');
-
-                    // Update active button
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-
-                    // Filter cards
-                    let visibleCards = [];
-                    projectCards.forEach((card, index) => {
-                        const category = card.getAttribute('data-category');
-
-                        if (filterValue === 'all' || category === filterValue) {
-                            if (window.innerWidth >= 1024) {
-                                // Desktop: let CSS grid handle visibility
-                                card.style.display = '';
-                                card.classList.remove('filtered-out');
-                            } else {
-                                // Mobile: show in card flipper
-                                card.style.display = 'block';
-                            }
-                            visibleCards.push(index);
-                        } else {
-                            // Hide filtered out cards
-                            card.style.display = 'none';
-                            card.classList.add('filtered-out');
-                        }
-                    });
-
-                    // Reset to first visible card (only for mobile card-flipping view)
-                    if (visibleCards.length > 0 && window.innerWidth < 1024) {
-                        cardFlipper.currentIndex = 0;
-                        cardFlipper.showCard(0);
-                    }
-                });
+            // Close modal when clicking outside
+            document.getElementById('projectModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeProjectModal();
+                }
             });
 
-            // Add visual feedback for card interactions
-            projectCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    if (!this.classList.contains('active')) {
-                        this.style.transform = 'scale(0.95)';
-                    }
-                });
-
-                card.addEventListener('mouseleave', function() {
-                    if (!this.classList.contains('active')) {
-                        this.style.transform = '';
-                    }
-                });
+            // Close modal with ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeProjectModal();
+                }
             });
 
-            // Handle window resize to switch between grid and card-flipping views
-            window.addEventListener('resize', function() {
-                initializeView();
-            });
+            // Ensure mobile flip behavior (if any) is only active on small screens
+            function enforceViewMode() {
+                const isMobile = window.innerWidth < 1024;
+                // If a CardFlipper class exists, try to disable or detach it on desktop
+                if (!isMobile && window.CardFlipper && typeof window.CardFlipper.disable === 'function') {
+                    try { window.CardFlipper.disable(); } catch (err) { /* no-op */ }
+                }
+                // Remove any .mobile-flip class to prefer grid styles on larger screens
+                document.querySelectorAll('.mobile-flip').forEach(el => el.classList.remove('mobile-flip'));
+            }
+            enforceViewMode();
+            window.addEventListener('resize', enforceViewMode);
         });
     </script>
 </body>

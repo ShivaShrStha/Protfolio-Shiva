@@ -47,6 +47,12 @@
       var ev = new CustomEvent('header-injected', { detail: { injected: true } });
       document.dispatchEvent(ev);
     } catch (e) { /* noop */ }
+    
+    // Add contact page class for special social icon handling
+    var currentPage = location.pathname.split('/').pop() || 'index.html';
+    if (currentPage === 'contact.html') {
+      document.body.classList.add('contact-page');
+    }
   }
 
   // Fetch header fragment relative to the page
@@ -61,17 +67,6 @@ function initHeader() {
     const mobileToggleEl = document.getElementById('mobile-toggle');
     const navMenuEl = document.querySelector('.nav-menu');
     const navLinksEl = document.querySelectorAll('.nav-link');
-
-    // Skip mobile toggle initialization on small screens (horizontal nav design)
-    if (window.innerWidth <= 767) {
-        // On mobile, just ensure nav links close any potential menu state
-        navLinksEl.forEach(link => {
-            link.addEventListener('click', () => {
-                // No toggle needed for horizontal nav
-            });
-        });
-        return;
-    }
 
     if (!navMenuEl || !mobileToggleEl) return;
 
@@ -88,10 +83,14 @@ function initHeader() {
         }
     }
 
-    mobileToggleEl.addEventListener('click', toggleMobileMenu);
-    mobileToggleEl.addEventListener('click', (e) => e.stopPropagation());
-    navMenuEl.addEventListener('click', (e) => e.stopPropagation());
+    // Add click event to mobile toggle button
+    mobileToggleEl.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMobileMenu();
+    });
 
+    // Close menu when clicking on nav links
     navLinksEl.forEach(link => {
         link.addEventListener('click', () => {
             navMenuEl.classList.remove('active');
@@ -100,6 +99,7 @@ function initHeader() {
         });
     });
 
+    // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!navMenuEl.classList.contains('active')) return;
         if (!navMenuEl.contains(e.target) && !mobileToggleEl.contains(e.target)) {
@@ -109,6 +109,7 @@ function initHeader() {
         }
     });
 
+    // Close menu with escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && navMenuEl.classList.contains('active')) {
             toggleMobileMenu();
@@ -214,6 +215,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         header.classList.remove('scrolled');
                     }
+                }
+
+                // Parallax effect for hero image
+                const heroImage = document.querySelector('.hero-image img');
+                if (heroImage) {
+                    const scrolled = window.pageYOffset;
+                    heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
                 }
 
                 // Trigger animations for elements in viewport
@@ -485,31 +493,285 @@ function animateCounters() {
     });
     counted = true;
 }
-const statsSection = document.querySelector('.about-stats');
-if (statsSection) {
-    const statsObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounters();
-            }
-        });
-    }, { threshold: 0.5 });
-    statsObserver.observe(statsSection);
-}
 
-// Form submission
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
+// Skills progress bars animation
+function animateSkillBars() {
+    const progressBars = document.querySelectorAll('.progress-bar');
+    progressBars.forEach((bar, index) => {
         setTimeout(() => {
-            alert('Message sent successfully!');
-            contactForm.reset();
-            submitBtn.textContent = 'Send Message';
-            submitBtn.disabled = false;
-        }, 1500);
+            const skill = bar.getAttribute('data-skill');
+            if (skill) {
+                bar.style.setProperty('--progress-width', skill + '%');
+                bar.classList.add('animated');
+            }
+        }, index * 200);
     });
 }
+
+// Enhanced intersection observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            
+            // Trigger specific animations based on element type
+            if (entry.target.classList.contains('about-stats')) {
+                animateCounters();
+            }
+            
+            if (entry.target.classList.contains('skills-grid')) {
+                setTimeout(animateSkillBars, 500);
+            }
+        }
+    });
+}, observerOptions);
+
+// Observe all animate elements
+document.addEventListener('DOMContentLoaded', function() {
+    const animateElements = document.querySelectorAll('.animate');
+    animateElements.forEach(el => observer.observe(el));
+    
+    // Also observe stats and skills sections
+    const statsSection = document.querySelector('.about-stats');
+    const skillsSection = document.querySelector('.skills-grid');
+    
+    if (statsSection) observer.observe(statsSection);
+    if (skillsSection) observer.observe(skillsSection);
+});
+
+// Form submission with better UX
+const contactForm = document.getElementById('contactForm');
+const successMessage = document.getElementById('successMessage');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Simulate form submission (replace with actual form handling)
+        try {
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            
+            // Show success message
+            if (successMessage) {
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+            
+            // Reset form
+            contactForm.reset();
+            
+        } catch (error) {
+            alert('There was an error sending your message. Please try again.');
+        } finally {
+            // Reset button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+    
+    // Real-time form validation
+    const inputs = contactForm.querySelectorAll('.form-input');
+    inputs.forEach(input => {
+        input.addEventListener('blur', validateField);
+        input.addEventListener('input', clearErrors);
+    });
+}
+
+function validateField(e) {
+    const field = e.target;
+    const value = field.value.trim();
+    
+    // Remove existing error styling
+    field.classList.remove('error');
+    
+    // Validate based on field type
+    if (field.hasAttribute('required') && !value) {
+        showFieldError(field, 'This field is required');
+        return false;
+    }
+    
+    if (field.type === 'email' && value && !isValidEmail(value)) {
+        showFieldError(field, 'Please enter a valid email address');
+        return false;
+    }
+    
+    return true;
+}
+
+function clearErrors(e) {
+    const field = e.target;
+    field.classList.remove('error');
+    const errorMsg = field.parentNode.querySelector('.error-message');
+    if (errorMsg) {
+        errorMsg.remove();
+    }
+}
+
+function showFieldError(field, message) {
+    field.classList.add('error');
+    
+    // Remove existing error message
+    const existingError = field.parentNode.querySelector('.error-message');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Add new error message
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.style.color = 'var(--accent)';
+    errorDiv.style.fontSize = '0.8rem';
+    errorDiv.style.marginTop = '0.5rem';
+    errorDiv.textContent = message;
+    field.parentNode.appendChild(errorDiv);
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Dark mode feature removed — prefer consistent light design
+
+// ===== LAZY LOADING ENHANCEMENT =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Lazy load images with intersection observer
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        lazyImages.forEach(img => {
+            img.classList.add('loaded');
+        });
+    }
+});
+
+// SKILLS NAMES MARQUEE removed per user request. No running names or pause control.
+
+// ===== PARALLAX EFFECTS =====
+document.addEventListener('DOMContentLoaded', function() {
+    const parallaxElements = document.querySelectorAll('.project-card');
+
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+
+        parallaxElements.forEach((element, index) => {
+            const rate = (index % 2 === 0) ? 0.5 : -0.5;
+            const yPos = -(scrolled * rate);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    }
+
+    // Only enable parallax on desktop for performance
+    if (window.innerWidth >= 1024) {
+        window.addEventListener('scroll', updateParallax, { passive: true });
+    }
+
+    // Parallax effect
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.transform = `translateY(${scrolled * 0.05}px)`;
+        });
+    }, { passive: true });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeProjectModal();
+    });
+});
+
+// ===== ACCESSIBILITY IMPROVEMENTS =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Add focus management for modal
+    const modal = document.getElementById('projectModal');
+    if (modal) {
+        const focusableElements = modal.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+
+        modal.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) {
+                    if (document.activeElement === firstElement) {
+                        lastElement.focus();
+                        e.preventDefault();
+                    }
+                } else {
+                    if (document.activeElement === lastElement) {
+                        firstElement.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        });
+    }
+
+    // Add ARIA labels for better screen reader support
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        const title = card.querySelector('.card-title');
+        const desc = card.querySelector('.card-description');
+        if (title && desc) {
+            card.setAttribute('aria-label', `${title.textContent}: ${desc.textContent}`);
+        }
+    });
+});
+
+// ===== PERFORMANCE OPTIMIZATIONS =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Preload critical resources
+    const criticalImages = document.querySelectorAll('.project-image img');
+    criticalImages.forEach(img => {
+        if (img.offsetTop < window.innerHeight) {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = img.src;
+            document.head.appendChild(link);
+        }
+    });
+
+    // Add loading states
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.classList.add('loaded');
+        });
+
+        img.addEventListener('error', function() {
+            this.classList.add('error');
+        });
+    });
+});
