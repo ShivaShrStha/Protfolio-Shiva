@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiva Sharan Shrestha | Full Stack Developer</title>
+    <meta http-equiv="refresh" content="0; url=https://www.shivasharanshrestha.com.np/">
+    <script>
+        // Immediate redirect to clean URL
+        window.location.href = 'https://www.shivasharanshrestha.com.np/';
+    </script>
+</head>
+<body>
+    <p>Redirecting to <a href="https://www.shivasharanshrestha.com.np/">https://www.shivasharanshrestha.com.np/</a></p>
+</body>
+</html>
