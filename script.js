@@ -755,58 +755,50 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!floatingSocial) return;
 
     let hideTimeout;
-    let lastTouchTime = 0;
+    let isVisible = true;
     
     // Function to show floating icons
     function showFloatingIcons() {
         floatingSocial.classList.remove('hidden');
+        isVisible = true;
         clearTimeout(hideTimeout);
         
         // Set timeout to hide after 3 seconds of no interaction
         hideTimeout = setTimeout(() => {
             floatingSocial.classList.add('hidden');
+            isVisible = false;
         }, 3000);
     }
     
-    // Function to hide floating icons
-    function hideFloatingIcons() {
-        floatingSocial.classList.add('hidden');
-        clearTimeout(hideTimeout);
-    }
-    
-    // Show icons on touch/interaction
-    function handleInteraction() {
-        lastTouchTime = Date.now();
-        showFloatingIcons();
-    }
-    
-    // Touch and mouse events
-    document.addEventListener('touchstart', handleInteraction, { passive: true });
-    document.addEventListener('touchmove', handleInteraction, { passive: true });
-    document.addEventListener('mousemove', handleInteraction, { passive: true });
-    document.addEventListener('scroll', handleInteraction, { passive: true });
-    
-    // For desktop devices, only hide on mobile/touch devices
-    function isTouchDevice() {
-        return (('ontouchstart' in window) ||
-                (navigator.maxTouchPoints > 0) ||
-                (navigator.msMaxTouchPoints > 0));
-    }
-    
-    // Initialize - only auto-hide on touch devices
-    if (isTouchDevice()) {
-        // Start hidden
-        hideFloatingIcons();
-        
-        // Show briefly on page load
-        setTimeout(() => {
+    // Function to handle user interaction
+    function handleUserInteraction() {
+        if (!isVisible) {
             showFloatingIcons();
-        }, 1000);
-    } else {
-        // On desktop, always show
-        showFloatingIcons();
-        clearTimeout(hideTimeout); // Don't auto-hide on desktop
+        } else {
+            // Reset the timer if already visible
+            clearTimeout(hideTimeout);
+            hideTimeout = setTimeout(() => {
+                floatingSocial.classList.add('hidden');
+                isVisible = false;
+            }, 3000);
+        }
     }
+    
+    // Add event listeners for user interactions
+    const events = ['touchstart', 'touchmove', 'mousemove', 'scroll', 'click', 'keydown'];
+    events.forEach(event => {
+        document.addEventListener(event, handleUserInteraction, { passive: true });
+    });
+    
+    // Initialize - show icons on page load
+    showFloatingIcons();
+    
+    // Add visibility change listener
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) {
+            showFloatingIcons();
+        }
+    });
 });
 
 // ===== PERFORMANCE OPTIMIZATIONS =====

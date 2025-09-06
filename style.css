@@ -1730,99 +1730,27 @@
             margin-top: 3rem;
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(37, 99, 235, 0.1);
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
-        }
-
-        .contact-card .contact-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .contact-card .contact-details h4 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--darker);
-            font-weight: 600;
-        }
-
-        .contact-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .contact-link:hover {
-            color: var(--secondary);
-            transform: translateX(5px);
-        }
-
-        .contact-text {
-            color: var(--gray);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
         .social-panel {
             background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(126, 34, 206, 0.05) 100%);
             border-radius: 20px;
             border: 1px solid rgba(37, 99, 235, 0.1);
-            padding: 2.5rem;
+            padding: 3rem;
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .social-panel h3 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 600;
             color: var(--darker);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .social-links-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
         }
 
         .social-card {
@@ -1882,6 +1810,18 @@
 
         .social-card.email {
             --social-color: #ea4335;
+        }
+
+        .social-card.phone {
+            --social-color: #4CAF50;
+        }
+
+        .social-card.whatsapp {
+            --social-color: #25d366;
+        }
+
+        .social-card.location {
+            --social-color: #ff6b6b;
         }
 
         /* Floating Social Icons */
@@ -2349,24 +2289,18 @@
 
         /* Responsive design for contact section */
         @media (max-width: 768px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .social-panel {
+                padding: 2rem;
             }
             
-            .contact-card {
-                padding: 1.5rem;
-            }
-            
-            .contact-card .contact-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.3rem;
+            .social-panel h3 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
             }
             
             .social-links-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+                gap: 1.5rem;
             }
             
             .social-card {
@@ -2374,7 +2308,7 @@
             }
             
             .social-card i {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .floating-social {
