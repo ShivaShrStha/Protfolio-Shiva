@@ -3,37 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found</title>
+    <title>Redirecting... | Shiva Sharan Shrestha</title>
     <script>
-        // URL rewriting for clean URLs (remove .html extensions)
-        var path = window.location.pathname;
-        var hash = window.location.hash;
-
-        // Remove .html extension if present
-        if (path.endsWith('.html')) {
-            var newPath = path.slice(0, -5); // Remove .html
-            window.location.href = newPath + hash;
-        }
-        // Handle clean URLs by adding .html extension
-        else if (path !== '/' && !path.includes('.') && !path.endsWith('/')) {
-            var htmlPath = path + '.html';
-            // Check if the .html version exists by trying to load it
-            fetch(htmlPath, { method: 'HEAD' })
-                .then(function(response) {
-                    if (response.ok) {
-                        window.location.href = htmlPath + hash;
-                    } else {
-                        // If .html doesn't exist, show 404
-                        document.body.innerHTML = '<h1>404 - Page Not Found</h1><p>The page you are looking for does not exist.</p>';
-                    }
-                })
-                .catch(function() {
-                    document.body.innerHTML = '<h1>404 - Page Not Found</h1><p>The page you are looking for does not exist.</p>';
-                });
-        }
+        // GitHub Pages URL rewriting
+        (function() {
+            var path = window.location.pathname;
+            var baseUrl = window.location.origin;
+            
+            // Map of clean URLs to actual HTML files
+            var routes = {
+                '/about': '/about.html',
+                '/skills': '/skills.html', 
+                '/projects': '/projects.html',
+                '/contact': '/contact.html'
+            };
+            
+            // If it's a clean URL, redirect to .html version
+            if (routes[path]) {
+                window.location.replace(baseUrl + routes[path]);
+            }
+            // If path ends with .html, redirect to clean URL
+            else if (path.endsWith('.html') && path !== '/index.html') {
+                var cleanPath = path.slice(0, -5); // Remove .html
+                if (Object.keys(routes).includes(cleanPath)) {
+                    window.location.replace(baseUrl + cleanPath);
+                }
+            }
+            // For any other 404, show error message
+            else if (path !== '/404.html') {
+                setTimeout(function() {
+                    document.body.innerHTML = 
+                        '<div style="text-align:center;margin-top:100px;font-family:Arial,sans-serif;">' +
+                        '<h1>404 - Page Not Found</h1>' +
+                        '<p>The page you are looking for does not exist.</p>' +
+                        '<a href="/" style="color:#2563eb;text-decoration:none;">← Go back to homepage</a>' +
+                        '</div>';
+                }, 1000);
+            }
+        })();
     </script>
 </head>
 <body>
-    <h1>Redirecting...</h1>
+    <div style="text-align:center;margin-top:100px;font-family:Arial,sans-serif;">
+        <h2>Redirecting...</h2>
+        <p>Please wait while we redirect you to the correct page.</p>
+    </div>
 </body>
 </html>
