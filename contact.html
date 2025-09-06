@@ -33,107 +33,92 @@
             </div>
 
             <div class="contact-container">
-                <!-- Left Side: Contact Info + Social Panel -->
-                <div class="contact-left">
-                    <!-- Contact Information -->
-                    <div class="contact-info animate">
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Email Me</h4>
-                                <p>shivasharanbrt@gmail.com</p>
-                            </div>
+                <!-- Contact Information Grid -->
+                <div class="contact-grid">
+                    <!-- Email Card -->
+                    <div class="contact-card animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                        
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Call Me</h4>
-                                <p>+977 98XXXXXXXX</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-info-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-details">
-                                <h4>Location</h4>
-                                <p>Kathmandu, Nepal</p>
-                            </div>
+                        <div class="contact-details">
+                            <h4>Email Me</h4>
+                            <p>shivasharanshrestha20@gmail.com</p>
+                            <a href="mailto:shivasharanshrestha20@gmail.com" class="contact-action">
+                                <i class="fas fa-external-link-alt"></i>
+                                Send Email
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Social Media Panel -->
-                    <div class="social-panel">
-                        <h3>Connect With Me</h3>
-                        <div class="social-links">
-                            <a href="https://github.com/ShivaShrStha" class="social-link" title="GitHub">
-                                <i class="fab fa-github"></i>
+                    <!-- Phone Card -->
+                    <div class="contact-card animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Call Me</h4>
+                            <p>+977 9863047841</p>
+                            <a href="tel:+9779863047841" class="contact-action">
+                                <i class="fas fa-phone-alt"></i>
+                                Call Now
                             </a>
-                            <a href="https://linkedin.com/in/YourLinkedIn" class="social-link" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="mailto:your.email@example.com" class="social-link" title="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            <a href="https://www.facebook.com/yourprofile" class="social-link" title="Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="https://www.instagram.com/yourprofile" class="social-link" title="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://wa.me/9779800000000" class="social-link" title="WhatsApp">
+                        </div>
+                    </div>
+
+                    <!-- WhatsApp Card -->
+                    <div class="contact-card animate">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p>+977 9818082311</p>
+                            <a href="https://wa.me/9779818082311" class="contact-action" target="_blank">
                                 <i class="fab fa-whatsapp"></i>
+                                Chat Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="contact-card animate">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Kathmandu, Nepal</p>
+                            <a href="https://maps.google.com/?q=Kathmandu,Nepal" class="contact-action" target="_blank">
+                                <i class="fas fa-map"></i>
+                                View Map
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact Form -->
-                <div class="contact-form animate">
-                    <form id="contactForm" class="form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Your Name *</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="subject" class="form-label">Subject *</label>
-                            <input type="text" id="subject" name="subject" class="form-input" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message *</label>
-                            <textarea id="message" name="message" class="form-input" rows="6" required placeholder="Tell me about your project..."></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
+                <!-- Social Media Panel -->
+                <div class="social-panel animate">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links-grid">
+                        <a href="https://github.com/ShivaShrStha" class="social-card github" target="_blank">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/shiva-sharan-shrestha-714899259/" class="social-card linkedin" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://www.facebook.com/shiva.sharanshrestha.9" class="social-card facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="mailto:shivasharanshrestha20@gmail.com" class="social-card email">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <!-- Success Message -->
-            <div id="successMessage" class="success-message" style="display: none;">
-                <div class="success-content">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Message Sent Successfully!</h3>
-                    <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
-                </div>
-            </div>
-        </div>
     </section>
 
     <script src="script.js"></script>

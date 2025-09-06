@@ -749,6 +749,66 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// ===== FLOATING SOCIAL ICONS AUTO-HIDE =====
+document.addEventListener('DOMContentLoaded', function() {
+    const floatingSocial = document.querySelector('.floating-social');
+    if (!floatingSocial) return;
+
+    let hideTimeout;
+    let lastTouchTime = 0;
+    
+    // Function to show floating icons
+    function showFloatingIcons() {
+        floatingSocial.classList.remove('hidden');
+        clearTimeout(hideTimeout);
+        
+        // Set timeout to hide after 3 seconds of no interaction
+        hideTimeout = setTimeout(() => {
+            floatingSocial.classList.add('hidden');
+        }, 3000);
+    }
+    
+    // Function to hide floating icons
+    function hideFloatingIcons() {
+        floatingSocial.classList.add('hidden');
+        clearTimeout(hideTimeout);
+    }
+    
+    // Show icons on touch/interaction
+    function handleInteraction() {
+        lastTouchTime = Date.now();
+        showFloatingIcons();
+    }
+    
+    // Touch and mouse events
+    document.addEventListener('touchstart', handleInteraction, { passive: true });
+    document.addEventListener('touchmove', handleInteraction, { passive: true });
+    document.addEventListener('mousemove', handleInteraction, { passive: true });
+    document.addEventListener('scroll', handleInteraction, { passive: true });
+    
+    // For desktop devices, only hide on mobile/touch devices
+    function isTouchDevice() {
+        return (('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0) ||
+                (navigator.msMaxTouchPoints > 0));
+    }
+    
+    // Initialize - only auto-hide on touch devices
+    if (isTouchDevice()) {
+        // Start hidden
+        hideFloatingIcons();
+        
+        // Show briefly on page load
+        setTimeout(() => {
+            showFloatingIcons();
+        }, 1000);
+    } else {
+        // On desktop, always show
+        showFloatingIcons();
+        clearTimeout(hideTimeout); // Don't auto-hide on desktop
+    }
+});
+
 // ===== PERFORMANCE OPTIMIZATIONS =====
 document.addEventListener('DOMContentLoaded', function() {
     // Preload critical resources

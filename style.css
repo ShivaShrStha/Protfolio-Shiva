@@ -1727,69 +1727,166 @@
 
         /* Contact Section */
         .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
             margin-top: 3rem;
         }
 
-        .contact-left {
-            display: flex;
-            flex-direction: column;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
         }
 
-        .contact-info-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
-        .contact-icon {
-            width: 50px;
-            height: 50px;
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+        }
+
+        .contact-card .contact-icon {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
             flex-shrink: 0;
         }
 
-        .contact-details h4 {
-            font-size: 1.2rem;
+        .contact-card .contact-details h4 {
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
             color: var(--darker);
             font-weight: 600;
         }
 
-        .contact-details p {
+        .contact-card .contact-details p {
             color: var(--gray);
-            margin: 0;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
         }
 
         .social-panel {
-            margin-top: 2rem;
-            padding: 2rem;
             background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(126, 34, 206, 0.05) 100%);
-            border-radius: 16px;
+            border-radius: 20px;
             border: 1px solid rgba(37, 99, 235, 0.1);
+            padding: 2.5rem;
+            text-align: center;
         }
 
-        .social-panel h4 {
-            font-size: 1.1rem;
+        .social-panel h3 {
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--darker);
-            margin-bottom: 1rem;
-            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .social-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .social-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.5rem 1rem;
+            background: white;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--darker);
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--social-color, var(--primary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .social-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-card i {
+            font-size: 2rem;
+            color: var(--social-color, var(--primary));
+        }
+
+        .social-card.github {
+            --social-color: #333;
+        }
+
+        .social-card.linkedin {
+            --social-color: #0077b5;
+        }
+
+        .social-card.facebook {
+            --social-color: #1877f2;
+        }
+
+        .social-card.email {
+            --social-color: #ea4335;
         }
 
         /* Floating Social Icons */
@@ -1802,6 +1899,12 @@
             display: flex !important;
             flex-direction: column !important;
             gap: 15px !important;
+            transition: opacity 0.5s ease, visibility 0.5s ease !important;
+        }
+
+        .floating-social.hidden {
+            opacity: 0 !important;
+            visibility: hidden !important;
         }
 
         .floating-social .social-link {
@@ -2251,31 +2354,43 @@
 
         /* Responsive design for contact section */
         @media (max-width: 768px) {
-            .contact-container {
+            .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
             
-            .contact-form {
-                padding: 2rem 1.5rem;
-            }
-            
-            .submit-btn {
-                padding: 1rem;
-            }
-            
-            .social-panel {
+            .contact-card {
                 padding: 1.5rem;
             }
             
-            .social-panel .social-links {
-                gap: 0.8rem;
-            }
-            
-            .social-panel .social-link {
+            .contact-card .contact-icon {
                 width: 50px;
                 height: 50px;
-                font-size: 1.1rem;
+                font-size: 1.3rem;
+            }
+            
+            .social-links-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .social-card {
+                padding: 1rem;
+            }
+            
+            .social-card i {
+                font-size: 1.5rem;
+            }
+            
+            .floating-social {
+                right: 15px !important;
+                gap: 12px !important;
+            }
+            
+            .floating-social .social-link {
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 1.1rem !important;
             }
         }
 
