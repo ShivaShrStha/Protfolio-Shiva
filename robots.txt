@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://shivasharanshrestha.com.np/sitemap.xml
+
+# Allow important pages
+Allow: /index.html
+Allow: /about.html
+Allow: /skills.html
+Allow: /projects.html
+Allow: /contact.html
+
+# Allow assets
+Allow: /imgs/
+Allow: /style.css
+Allow: /script.js
+
+# Block unnecessary files
+Disallow: /resume/
+Disallow: /*.pdf
