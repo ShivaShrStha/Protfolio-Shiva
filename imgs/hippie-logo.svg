@@ -1,0 +1,32 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Psychedelic flowing logo">
+    <defs>
+        <linearGradient id="hippie-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff007f" />
+            <stop offset="50%" stop-color="#7e22ce" />
+            <stop offset="100%" stop-color="#00f2ff" />
+        </linearGradient>
+        <filter id="hippie-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+            </feMerge>
+        </filter>
+        <style>
+            .path-anim {
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                animation: draw 5s ease-in-out forwards infinite;
+            }
+            @keyframes draw {
+                to {
+                    stroke-dashoffset: 0;
+                }
+            }
+        </style>
+    </defs>
+    <g filter="url(#hippie-glow)">
+        <path class="path-anim" d="M 20,60 C 20,20 100,20 100,60 S 20,100 20,60" stroke="url(#hippie-grad)" stroke-width="8" fill="none" stroke-linecap="round" style="animation-delay: 0s;"/>
+        <path class="path-anim" d="M 60,20 C 100,20 100,100 60,100 S 20,20 60,20" stroke="url(#hippie-grad)" stroke-width="8" fill="none" stroke-linecap="round" style="animation-delay: -2.5s;"/>
+    </g>
+</svg>
