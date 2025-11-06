@@ -10,12 +10,15 @@ Allow: /about.html
 Allow: /skills.html
 Allow: /projects.html
 Allow: /contact.html
+Allow: /resume/Shiva_Sharan_Shrestha_CV.pdf
 
 # Allow assets
 Allow: /imgs/
 Allow: /style.css
 Allow: /script.js
 
-# Block unnecessary files
-Disallow: /resume/
-Disallow: /*.pdf
+# Disallow directories you don't want crawled
+Disallow: /about/
+Disallow: /contact/
+Disallow: /projects/
+Disallow: /skills/
