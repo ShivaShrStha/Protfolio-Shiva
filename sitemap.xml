@@ -36,4 +36,10 @@
         <changefreq>yearly</changefreq>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>https://shivasharanshrestha.com.np/imgs/shiva.svg</loc>
+        <lastmod>2025-11-06</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
 </urlset>
