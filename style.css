@@ -84,7 +84,7 @@
 
         .nav-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 1.5rem 0;
         }
@@ -95,6 +95,24 @@
             color: var(--primary);
             display: flex;
             align-items: center;
+        }
+
+        .logo-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 0.75rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            background: white;
+            padding: 4px;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            display: inline-block;
         }
 
         .logo-accent {
