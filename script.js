@@ -122,6 +122,40 @@ document.addEventListener('DOMContentLoaded', initHeader);
 // Re-run when header is injected dynamically
 document.addEventListener('header-injected', initHeader);
 
+// Clean URL handling - hide .html extensions from address bar
+(function() {
+    function cleanURL() {
+        var currentPath = window.location.pathname;
+        var shouldClean = false;
+        var newPath = currentPath;
+
+        if (currentPath.endsWith('.html')) {
+            if (currentPath === '/index.html') {
+                newPath = '/';
+                shouldClean = true;
+            } else {
+                newPath = currentPath.replace('.html', '');
+                shouldClean = true;
+            }
+        }
+
+        if (shouldClean) {
+            try {
+                window.history.replaceState(null, '', newPath);
+            } catch (e) {
+                // Ignore errors in case of file:// protocol or other restrictions
+            }
+        }
+    }
+
+    // Clean URL when page loads
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', cleanURL);
+    } else {
+        cleanURL();
+    }
+})();
+
 // Ensure any user interaction (touch/click/pointerdown) reveals the header immediately.
 function ensureHeaderShowsOnInteraction() {
     function showHeaderOnInteraction() {

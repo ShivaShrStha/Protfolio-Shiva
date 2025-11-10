@@ -1,21 +1,21 @@
-<!-- header.html: fragment - only the header markup (used by inject-header.js) -->
+<!-- header.html: shared header fragment injected into pages -->
 <header id="header">
-    <div class="container nav-container">
-       
-        <nav>
-            <ul class="nav-menu">
-                <li><a href="/" class="nav-link">Home</a></li>
-                <li><a href="/about" class="nav-link">About</a></li>
-                <li><a href="/skills" class="nav-link">Skills</a></li>
-                <li><a href="/projects" class="nav-link">Projects</a></li>
-                <li><a href="/contact" class="nav-link nav-cta">Contact</a></li>
-            </ul>
-        </nav>
+  <div class="container nav-container">
+    <!-- Mobile toggle button -->
+    <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle mobile menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </div>
+    <nav aria-label="Main navigation">
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="skills.html" class="nav-link">Skills</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
