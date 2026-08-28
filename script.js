@@ -6,8 +6,11 @@
     document.head.appendChild(template.content);
   }
 
-  // Fetch head fragment relative to the page
-  fetch('head.html', {cache: 'no-store'})
+  // Fetch head fragment from root (works from any subfolder)
+  var headPath = location.pathname.includes('/about/') || location.pathname.includes('/skills/') || location.pathname.includes('/projects/') || location.pathname.includes('/contact/')
+    ? '../head.html'
+    : 'head.html';
+  fetch(headPath, {cache: 'no-store'})
     .then(function(res) { if (!res.ok) throw new Error('Failed to load head.html'); return res.text(); })
     .then(function(html) { insertHeadFragment(html); })
     .catch(function(err) { console.warn('inject-head failed:', err); });
@@ -27,12 +30,31 @@
 
     // After inserting, mark the active nav-link based on current location
     try {
-      var current = location.pathname.split('/').pop() || 'index.html';
+            var isSubfolder = /\/(about|skills|projects|contact)\//.test(location.pathname);
+            var navRoot = isSubfolder ? '../' : './';
+            var navPaths = {
+                home: navRoot,
+                about: navRoot + 'about/',
+                skills: navRoot + 'skills/',
+                projects: navRoot + 'projects/',
+                contact: navRoot + 'contact/'
+            };
+      var pathParts = location.pathname.split('/').filter(Boolean);
+      // The first path segment identifies the section (e.g. 'about', 'skills')
+      var section = pathParts[0] || 'index.html';
       var links = document.querySelectorAll('.nav-menu .nav-link');
       links.forEach(function(link) {
-        // normalize href value
-        var href = (link.getAttribute('href') || '').split('/').pop();
-        if (href === current) {
+        var href = (link.getAttribute('href') || '');
+                var linkSection = href === 'index.html' || href === '/' || href === '../index.html'
+                    ? 'home'
+                    : href.replace(/\.html$/, '').replace(/\/$/, '');
+                link.setAttribute('href', navPaths[linkSection] || href);
+        // Match index.html for home, or folder name for section pages
+                var isHome = linkSection === 'home';
+                var hrefSection = linkSection;
+        if (isHome && (section === 'index.html' || section === '')) {
+          link.classList.add('active');
+        } else if (!isHome && hrefSection === section) {
           link.classList.add('active');
         } else {
           link.classList.remove('active');
@@ -55,8 +77,12 @@
     }
   }
 
+  // Determine if we are in a subfolder
+  var isSubfolder = /\/(about|skills|projects|contact)\//.test(location.pathname);
+  var headerPath = isSubfolder ? '../header.html' : 'header.html';
+
   // Fetch header fragment relative to the page
-  fetch('header.html', {cache: 'no-store'})
+  fetch(headerPath, {cache: 'no-store'})
     .then(function(res) { if (!res.ok) throw new Error('Failed to load header.html'); return res.text(); })
     .then(function(html) { insertHeaderFragment(html); })
     .catch(function(err) { console.warn('inject-header failed:', err); });
@@ -70,17 +96,16 @@ function initHeader() {
 
     if (!navMenuEl || !mobileToggleEl) return;
 
+    function setMenuState(isOpen) {
+        navMenuEl.classList.toggle('active', isOpen);
+        mobileToggleEl.classList.toggle('active', isOpen);
+        mobileToggleEl.setAttribute('aria-expanded', String(isOpen));
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+
     function toggleMobileMenu() {
         const isActive = navMenuEl.classList.contains('active');
-        if (isActive) {
-            navMenuEl.classList.remove('active');
-            mobileToggleEl.classList.remove('active');
-            document.body.style.overflow = '';
-        } else {
-            navMenuEl.classList.add('active');
-            mobileToggleEl.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+        setMenuState(!isActive);
     }
 
     // Add click event to mobile toggle button
@@ -93,9 +118,7 @@ function initHeader() {
     // Close menu when clicking on nav links
     navLinksEl.forEach(link => {
         link.addEventListener('click', () => {
-            navMenuEl.classList.remove('active');
-            mobileToggleEl.classList.remove('active');
-            document.body.style.overflow = '';
+            setMenuState(false);
         });
     });
 
@@ -103,18 +126,18 @@ function initHeader() {
     document.addEventListener('click', (e) => {
         if (!navMenuEl.classList.contains('active')) return;
         if (!navMenuEl.contains(e.target) && !mobileToggleEl.contains(e.target)) {
-            navMenuEl.classList.remove('active');
-            mobileToggleEl.classList.remove('active');
-            document.body.style.overflow = '';
+            setMenuState(false);
         }
     });
 
     // Close menu with escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && navMenuEl.classList.contains('active')) {
-            toggleMobileMenu();
+            setMenuState(false);
         }
     });
+
+    mobileToggleEl.setAttribute('aria-expanded', 'false');
 }
 
 // Run once if header already present
@@ -236,102 +259,79 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Enhanced scroll performance
-    let scrollTimer;
-    window.addEventListener('scroll', function() {
-        if (!scrollTimer) {
-            scrollTimer = setTimeout(function() {
-                // Header scroll effect
-                const header = document.getElementById('header');
-                if (header) {
-                    if (window.scrollY > 50) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
+    // Header scroll effect
+    function updateHeaderState() {
+        const header = document.getElementById('header');
+        if (header) {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+    updateHeaderState();
+
+    // Parallax effect for hero image (kept subtle and only on the hero)
+    const heroImage = document.querySelector('.hero-image img');
+    if (heroImage) {
+        const updateHeroParallax = () => {
+            const scrolled = window.pageYOffset;
+            heroImage.style.transform = `perspective(800px) rotateY(-15deg) translateY(${Math.min(scrolled * 0.18, 16)}px)`;
+        };
+        window.addEventListener('scroll', updateHeroParallax, { passive: true });
+        updateHeroParallax();
+    }
+
+    // Scroll-in reveal animation: chosen behavior is 'reveal once when it enters view and stays visible'.
+    function initScrollReveal() {
+        const revealElements = document.querySelectorAll('.animate');
+        if (!revealElements.length) return;
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
                 }
-
-                // Parallax effect for hero image
-                const heroImage = document.querySelector('.hero-image img');
-                if (heroImage) {
-                    const scrolled = window.pageYOffset;
-                    heroImage.style.transform = `translateY(${scrolled * 0.5}px)`;
-                }
-
-                // Trigger animations for elements in viewport
-                const animateElements = document.querySelectorAll('.animate');
-                animateElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementBottom = element.getBoundingClientRect().bottom;
-                    const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
-
-                    if (isVisible) {
-                        element.classList.add('animated');
-                    }
-                });
-
-                scrollTimer = null;
-            }, 16); // ~60fps
-        }
-    }, { passive: true });
-
-    // Auto-hide header when user is idle for 2 seconds (desktop only)
-    (function headerAutoHide() {
-        // Only enable auto-hide on pointer-capable (desktop) devices. Touch devices
-        // with coarse pointers often expect the header to remain visible.
-        if (window.matchMedia && !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            return; // skip auto-hide on touch/mobile devices
-        }
-
-        const headerEl = document.getElementById('header');
-        if (!headerEl) return;
-
-        let idleTimer = null;
-        const IDLE_DELAY = 2000; // 2 seconds
-
-        function showHeader() {
-            headerEl.classList.remove('header-hidden');
-        }
-
-        function hideHeader() {
-            // don't hide when mobile menu is open
-            const navMenu = document.querySelector('.nav-menu');
-            if (navMenu && navMenu.classList.contains('active')) return;
-            headerEl.classList.add('header-hidden');
-        }
-
-        function resetTimer() {
-            showHeader();
-            if (idleTimer) clearTimeout(idleTimer);
-            idleTimer = setTimeout(hideHeader, IDLE_DELAY);
-        }
-
-        // Events that indicate user activity
-        ['mousemove','pointermove','scroll','keydown'].forEach(evt => {
-            document.addEventListener(evt, resetTimer, { passive: true });
-        });
-
-        // Start the timer after initial load
-        idleTimer = setTimeout(hideHeader, IDLE_DELAY);
-
-        // When the mobile menu opens/closes show header
-        const mobileToggleEl = document.getElementById('mobile-toggle');
-        if (mobileToggleEl) {
-            mobileToggleEl.addEventListener('click', () => {
-                resetTimer();
             });
-        }
-    })();
-
-    // Initialize animations on page load
-    setTimeout(() => {
-        const initialAnimateElements = document.querySelectorAll('.animate');
-        initialAnimateElements.forEach((element, index) => {
-            setTimeout(() => {
-                element.classList.add('animated');
-            }, index * 100);
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -30px 0px'
         });
-    }, 100);
+
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+
+    // ── Journey Timeline: scroll-reveal per item (works on both desktop & mobile) ──
+    function initJourneyReveal() {
+        const journeyItems = document.querySelectorAll('.journey-item');
+        if (!journeyItems.length) return;
+
+        const journeyObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('journey-visible');
+                    journeyObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        journeyItems.forEach((item) => {
+            journeyObserver.observe(item);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', initJourneyReveal);
 
     /* JS-driven marquee: responsive, smooth, pause-on-hover/touch, respects reduced-motion */
     async function initMarquee() {

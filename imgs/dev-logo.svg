@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="44" height="44" aria-label="Shiva Sharan Shrestha - Full Stack Developer">
+  <defs>
+    <linearGradient id="gA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#7e22ce"/>
+    </linearGradient>
+    <linearGradient id="gB" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7e22ce"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="26" cy="26" r="25" fill="url(#gA)" opacity="0.92"/>
+
+  <!-- Orbit ring -->
+  <ellipse cx="26" cy="26" rx="17" ry="6.5" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" transform="rotate(-30 26 26)">
+    <animateTransform attributeName="transform" type="rotate" from="0 26 26" to="360 26 26" dur="6s" repeatCount="indefinite"/>
+  </ellipse>
+
+  <!-- Code brackets < /> -->
+  <text x="26" y="30" text-anchor="middle" font-family="'Courier New', monospace" font-size="14" font-weight="900" fill="white" filter="url(#glow)">
+    &lt;/&gt;
+  </text>
+
+  <!-- Orbiting dot 1 -->
+  <circle r="2.8" fill="white" opacity="0.9">
+    <animateMotion dur="6s" repeatCount="indefinite">
+      <mpath href="#orbit1"/>
+    </animateMotion>
+  </circle>
+  <path id="orbit1" d="M 26 9.5 A 16.5 6.5 0 1 1 25.99 9.5" fill="none" transform="rotate(-30 26 26)"/>
+
+  <!-- Orbiting dot 2 (offset) -->
+  <circle r="1.8" fill="#a78bfa" opacity="0.85">
+    <animateMotion dur="6s" begin="3s" repeatCount="indefinite">
+      <mpath href="#orbit2"/>
+    </animateMotion>
+  </circle>
+  <path id="orbit2" d="M 26 9.5 A 16.5 6.5 0 1 1 25.99 9.5" fill="none" transform="rotate(-30 26 26)"/>
+
+  <!-- Tiny floating particles -->
+  <circle cx="10" cy="12" r="1.2" fill="white" opacity="0.5">
+    <animate attributeName="cy" values="12;9;12" dur="3.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="42" cy="15" r="1" fill="#a78bfa" opacity="0.55">
+    <animate attributeName="cy" values="15;12;15" dur="2.7s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.55;1;0.55" dur="2.7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="8" cy="38" r="1.3" fill="white" opacity="0.4">
+    <animate attributeName="cy" values="38;41;38" dur="3.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="44" cy="40" r="1" fill="#60a5fa" opacity="0.5">
+    <animate attributeName="cy" values="40;37;40" dur="2.9s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.9s" repeatCount="indefinite"/>
+  </circle>
+</svg>
