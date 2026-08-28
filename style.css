@@ -3583,3 +3583,18 @@ body {
     padding: 1rem;
     background: #fff;
 }
+.skill-info i {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+@media (max-width: 480px) {
+    .skill-info i {
+        width: 32px;
+        height: 32px;
+        font-size: 24px;
+    }
+}
