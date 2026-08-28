@@ -10,7 +10,7 @@
 
 ### ⚠️ WARNING: HIGH VOLTAGE ⚡
 
-I don't just write code—I engineer solutions that look incredible and perform relentlessly. I am **Shiva Sharan Shrestha**, a Full-Stack Developer, AI enthusiast, and digital architect from Nepal. If it runs on the web, I can build it. If it’s broken, I can fix it. If it’s slow, I can make it dangerous.
+I don't just write code, I engineer solutions that look incredible and perform relentlessly. I am **Shiva Sharan Shrestha**, a Full-Stack Developer, AI enthusiast, and digital architect from Nepal. If it runs on the web, I can build it. If it’s broken, I can fix it. If it’s slow, I can make it dangerous.
 
 ```javascript
 const shiva = {
@@ -33,17 +33,6 @@ const shiva = {
 
 <br>
 
-### 📈 BATTLE STATS
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=ShivaShrStha&show_icons=true&theme=blood&hide_border=true&bg_color=000000" alt="GitHub Stats" />
-  <br>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=ShivaShrStha&theme=blood&hide_border=true&background=000000" alt="GitHub Streak" />
-  <br>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ShivaShrStha&layout=compact&theme=blood&hide_border=true&bg_color=000000" alt="Top Languages" />
-</div>
-
----
 
 ### 📡 INITIATE CONTACT
 
