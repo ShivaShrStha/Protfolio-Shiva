@@ -317,6 +317,37 @@
                         </div>
                     </div>
 
+                    <!-- NEW Project Card: Downdetector.me -->
+                    <div class="project-card animate" data-category="web" data-id="downdetector-me" role="listitem" tabindex="0">
+                        <div class="project-image-container">
+                            <img src="../imgs/downdetector.svg" alt="Downdetector.me status monitoring dashboard" loading="lazy">
+                            <div class="project-overlay">
+                                <div class="project-category-badge">
+                                    <i class="fas fa-signal"></i>
+                                    <span>Monitoring</span>
+                                </div>
+                                <div class="project-tech-stack">
+                                    <span class="tech-item">PHP 8</span>
+                                    <span class="tech-item">MySQL</span>
+                                    <span class="tech-item">cURL Batch</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">Downdetector.me</h3>
+                                <div class="project-year">2026</div>
+                            </div>
+                            <p class="project-description">High-concurrency uptime and status monitor tracking 9,600+ global and local endpoints with automated alerts and SEO-ready status pages.</p>
+                            <div class="project-actions">
+                                <a href="https://downdetector.me/" class="project-btn primary" target="_blank" rel="noopener" aria-label="Visit Downdetector.me live site">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Site</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Project Card: TotalGPA -->
                     <div class="project-card animate" data-category="web" data-id="totalgpa" role="listitem" tabindex="0">
                         <div class="project-image-container project-image-contain">
@@ -354,11 +385,11 @@
                 </div>
             </div>
 
-            <div id="projectModal" class="project-modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+            <div id="projectModal" class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true" tabindex="-1">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 id="modalTitle">Project Details</h3>
-                        <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">
+                        <button id="modalClose" class="modal-close" type="button" aria-label="Close modal">
                             <i class="fas fa-times"></i>
                         </button>
                     </div>
@@ -394,6 +425,9 @@
             // Filter functionality
             const filterButtons = document.querySelectorAll('.filter-btn');
             const projectCards = document.querySelectorAll('.project-card');
+            const projectModal = document.getElementById('projectModal');
+            const modalClose = document.getElementById('modalClose');
+            let lastFocusedElement = null;
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -410,6 +444,21 @@
             // Wire up modal click handlers for cards
             projectCards.forEach(card => {
                 card.style.cursor = 'pointer';
+                const projectId = card.getAttribute('data-id');
+                const projectTitle = card.querySelector('.project-title')?.textContent.trim() || 'project';
+                const projectDescription = card.querySelector('.project-description');
+                if (projectId && projectDescription) {
+                    const detailsButton = document.createElement('button');
+                    detailsButton.type = 'button';
+                    detailsButton.className = 'project-details-trigger';
+                    detailsButton.setAttribute('aria-label', `See more details about ${projectTitle}`);
+                    detailsButton.innerHTML = '<span>See more</span><i class="fas fa-arrow-right" aria-hidden="true"></i>';
+                    detailsButton.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        showProjectDetails(projectId);
+                    });
+                    projectDescription.insertAdjacentElement('afterend', detailsButton);
+                }
                 card.addEventListener('click', function(e) {
                     if (e.target.closest('a') || e.target.closest('button')) {
                         return;
@@ -417,6 +466,15 @@
                     const projectId = this.getAttribute('data-id');
                     if (projectId) {
                         showProjectDetails(projectId);
+                    }
+                });
+                card.addEventListener('keydown', function(e) {
+                    if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('a, button')) {
+                        e.preventDefault();
+                        const projectId = this.getAttribute('data-id');
+                        if (projectId) {
+                            showProjectDetails(projectId);
+                        }
                     }
                 });
             });
@@ -514,8 +572,7 @@
                         ],
                         challenges: 'Presenting diverse business sectors in a cohesive and engaging manner.',
                         results: 'Enhanced brand visibility, increased business inquiries, improved stakeholder communication.'
-                    }
-                    ,
+                    },
                     'rise-and-build': {
                         title: 'Rise And Build Construction',
                         description: 'Professional construction company in Nepal offering residential and commercial construction, earthquake-resistant design, interior design, and project management.',
@@ -558,11 +615,42 @@
                         ],
                         challenges: 'Integrating real-time property data and ensuring accurate listings.',
                         results: 'Streamlined property transactions and increased client engagement in the Nepali real estate market.'
+                    },
+                    'downdetector-me': {
+                        title: 'Downdetector.me',
+                        description: 'An automated status monitoring engine and programmatic SEO platform that tracks 9,600+ global and local digital endpoints, then turns incidents into fast, searchable status pages.',
+                        technologies: ['PHP 8', 'MySQL indexing', 'Multi-threaded cURL', 'Discord Webhooks', 'XML Sitemaps'],
+                        features: [
+                            '50 concurrent endpoint checks per 5-minute cycle',
+                            'Discord webhook alert dispatcher',
+                            'Dynamic inline SVG badge generator',
+                            'Clean .htaccess routing',
+                            'Programmatic SEO status architecture',
+                            'Responsive dark/light mode interface'
+                        ],
+                        challenges: 'Keeping high-frequency checks fast and reliable while scaling to thousands of monitored endpoints and preserving SEO-friendly routing.',
+                        results: 'A production-ready uptime platform with automated incident alerts, resilient endpoint monitoring, and search-optimized status pages.'
+                    },
+                    'totalgpa': {
+                        title: 'TotalGPA',
+                        description: 'An academic utility platform that helps students calculate, understand, and manage their GPA information through a fast, focused web experience.',
+                        technologies: ['PHP', 'MySQL', 'JavaScript', 'Responsive UI', 'SEO'],
+                        features: [
+                            'GPA calculation tools',
+                            'Academic result organization',
+                            'Fast PHP and MySQL backend',
+                            'Clear student-focused interface',
+                            'Responsive mobile experience',
+                            'Search-friendly content structure'
+                        ],
+                        challenges: 'Presenting academic calculations clearly while keeping the experience lightweight and easy to use on smaller screens.',
+                        results: 'A practical student resource with a streamlined workflow for academic planning and GPA management.'
                     }
                 };
 
                 const project = projectDetails[projectId];
                 if (project) {
+                    lastFocusedElement = document.activeElement;
                     modalTitle.textContent = project.title;
                     modalBody.innerHTML = `
                         <div class="project-detail-content">
@@ -596,19 +684,27 @@
                             </div>
                         </div>
                     `;
-                    modal.style.display = 'flex';
+                    modal.classList.add('show');
                     modal.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('modal-open');
+                    modalClose.focus();
                 }
             }
 
             function closeProjectModal() {
-                const modal = document.getElementById('projectModal');
-                modal.style.display = 'none';
-                modal.setAttribute('aria-hidden', 'true');
+                projectModal.classList.remove('show');
+                projectModal.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('modal-open');
+                if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+                    lastFocusedElement.focus();
+                }
+                lastFocusedElement = null;
             }
 
+            modalClose.addEventListener('click', closeProjectModal);
+
             // Close modal when clicking outside
-            document.getElementById('projectModal').addEventListener('click', function(e) {
+            projectModal.addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeProjectModal();
                 }
@@ -616,7 +712,7 @@
 
             // Close modal with ESC key
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
+                if (e.key === 'Escape' && projectModal.getAttribute('aria-hidden') === 'false') {
                     closeProjectModal();
                 }
             });
