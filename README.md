@@ -14,12 +14,70 @@ I build reliable web applications with a focus on performance, maintainability, 
 
 ```javascript
 const shiva = {
-    code: ["Javascript", "Typescript", "Python", "PHP", "HTML/CSS"],
-    frameworks: ["React", "Next.js", "Laravel", "FastAPI", "Tailwind CSS"],
-    ai_vision: ["OpenCV", "DeepFace", "TensorFlow", "Face Recognition", "Computer Vision", "Codex"],
-    databases: ["PostgreSQL", "MySQL", "SQLite"],
-    focus: "Scalable, production-ready solutions",
-    attitude: "Professional and detail-oriented"
+    role: "Full-Stack Developer",
+    location: "Kathmandu, Nepal",
+
+    code: [
+        "JavaScript",
+        "TypeScript",
+        "Python",
+        "PHP",
+        "HTML",
+        "CSS"
+    ],
+
+    frontend: [
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+        "Vite"
+    ],
+
+    backend: [
+        "Node.js",
+        "Laravel",
+        "FastAPI",
+        "REST APIs"
+    ],
+
+    databases: [
+        "PostgreSQL",
+        "MySQL",
+        "SQLite"
+    ],
+
+    ai_vision: [
+        "OpenCV",
+        "DeepFace",
+        "TensorFlow",
+        "Face Recognition",
+        "Computer Vision"
+    ],
+
+    tools: [
+        "Git",
+        "GitHub",
+        "VS Code",
+        "npm",
+        "Composer"
+    ],
+
+    development: [
+        "API Development",
+        "Database Design",
+        "Authentication & Security",
+        "Performance Optimization",
+        "System Integration"
+    ],
+
+    currently_building: [
+        "AI-powered applications",
+        "SaaS platforms",
+        "Scalable web applications"
+    ],
+
+    focus: "Clean, scalable, production-ready software",
+    mindset: "Build. Learn. Improve. Ship."
 };
 ```
 
