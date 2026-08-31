@@ -3801,6 +3801,41 @@ body.modal-open {
     line-height: 1.2;
 }
 
+.technology-groups {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.technology-group {
+    display: grid;
+    grid-template-columns: minmax(7rem, 0.3fr) minmax(0, 1fr);
+    gap: 0.85rem;
+    align-items: start;
+    padding: 0.8rem;
+    border: 1px solid rgba(226, 232, 240, 0.95);
+    border-radius: 14px;
+    background: rgba(248, 250, 252, 0.78);
+}
+
+.technology-group-label {
+    padding-top: 0.45rem;
+    color: var(--darker);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+.features-list li strong {
+    color: var(--darker);
+    font-weight: 800;
+}
+
+.project-detail-downdetector-me .features-list {
+    grid-template-columns: 1fr;
+}
+
 .features-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3851,6 +3886,15 @@ body.modal-open {
 
     .features-list {
         grid-template-columns: 1fr;
+    }
+
+    .technology-group {
+        grid-template-columns: 1fr;
+        gap: 0.45rem;
+    }
+
+    .technology-group-label {
+        padding-top: 0;
     }
 }
 

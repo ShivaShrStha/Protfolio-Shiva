@@ -3,23 +3,23 @@
   
   <br>
 
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=28&pause=1000&color=FF0000&center=true&vCenter=true&width=600&lines=I+build+things+for+the+web.;I+orchestrate+chaos.;Full-Stack+Architect.;I+turn+coffee+into+code." alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=700&size=28&pause=1000&color=FF0000&center=true&vCenter=true&width=700&lines=Full-Stack+Developer.;Web+Applications+%26+AI+Solutions.;Clean,+Reliable,+Production-Ready+Code." alt="Typing SVG" />
 </div>
 
 ---
 
-### ⚠️ WARNING: HIGH VOLTAGE ⚡
+### Professional Summary
 
-I don't just write code, I engineer solutions that look incredible and perform relentlessly. I am **Shiva Sharan Shrestha**, a Full-Stack Developer, AI enthusiast, and digital architect from Nepal. If it runs on the web, I can build it. If it’s broken, I can fix it. If it’s slow, I can make it dangerous.
+I build reliable web applications with a focus on performance, maintainability, and clean user experience. I am **Shiva Sharan Shrestha**, a Full-Stack Developer and AI enthusiast from Nepal, working across modern web stacks and practical computer vision solutions. My focus is on shipping production-ready software that solves real problems.
 
 ```javascript
 const shiva = {
     code: ["Javascript", "Typescript", "Python", "PHP", "HTML/CSS"],
     frameworks: ["React", "Next.js", "Laravel", "FastAPI", "Tailwind CSS"],
-    ai_vision: ["OpenCV", "DeepFace", "TensorFlow", "FaceFusion", "Antigravity", "Codex"],
+    ai_vision: ["OpenCV", "DeepFace", "TensorFlow", "Face Recognition", "Computer Vision", "Codex"],
     databases: ["PostgreSQL", "MySQL", "SQLite"],
-    attitude: "Limitless",
-    coffee_intake: Infinity
+    focus: "Scalable, production-ready solutions",
+    attitude: "Professional and detail-oriented"
 };
 ```
 

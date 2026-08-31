@@ -338,7 +338,7 @@
                                 <h3 class="project-title">Downdetector.me</h3>
                                 <div class="project-year">2026</div>
                             </div>
-                            <p class="project-description">High-concurrency uptime and status monitor tracking 9,600+ global and local endpoints with automated alerts and SEO-ready status pages.</p>
+                            <p class="project-description">Automated status-monitoring platform tracking 9,600+ endpoints with batched concurrency, Discord alerting, and programmatic SEO infrastructure.</p>
                             <div class="project-actions">
                                 <a href="https://downdetector.me/" class="project-btn primary" target="_blank" rel="noopener" aria-label="Visit Downdetector.me live site">
                                     <i class="fas fa-external-link-alt"></i>
@@ -481,6 +481,16 @@
 
             // Dark mode removed from UI - no toggle present
 
+            function formatFeature(feature) {
+                const separatorIndex = feature.indexOf(':');
+                if (separatorIndex === -1) {
+                    return feature;
+                }
+                const label = feature.slice(0, separatorIndex);
+                const detail = feature.slice(separatorIndex + 1).trim();
+                return `<strong>${label}:</strong> ${detail}`;
+            }
+
             // Modal functionality (as in original)
             function showProjectDetails(projectId) {
                 const modal = document.getElementById('projectModal');
@@ -493,14 +503,14 @@
                         description: 'A comprehensive Nepali news platform featuring government interviews, economic analysis, health awareness, and climate coverage.',
                         technologies: ['WordPress', 'PHP', 'MySQL', 'JavaScript', 'CSS3'],
                         features: [
-                            'Real-time news updates',
-                            'Government official interviews',
-                            'Economic analysis section',
-                            'Health awareness campaigns',
-                            'Cyber security discussions',
-                            'Climate change coverage',
-                            'Mobile-responsive design',
-                            'SEO optimized'
+                            'Structured editorial publishing workflow',
+                            'Government interview content modules',
+                            'Dedicated economic analysis coverage',
+                            'Health-awareness campaign publishing',
+                            'Cybersecurity-focused editorial coverage',
+                            'Climate and environment reporting',
+                            'Responsive content delivery across devices',
+                            'SEO-ready article architecture'
                         ],
                         challenges: 'Implementing real-time content management while maintaining fast loading speeds.',
                         results: '50K+ monthly visitors, 100% mobile responsive, featured in major Nepali media outlets.'
@@ -510,14 +520,14 @@
                         description: 'Child welfare NGO website with donation management and volunteer coordination.',
                         technologies: ['WordPress', 'PHP', 'Donation API', 'MySQL', 'JavaScript'],
                         features: [
-                            'Online donation system',
-                            'Volunteer management portal',
-                            'Impact tracking dashboard',
-                            'News and updates section',
-                            'Event management',
-                            'Photo gallery',
-                            'Contact forms',
-                            'Social media integration'
+                            'Secure online donation intake',
+                            'Volunteer registration and coordination workflow',
+                            'Impact reporting and transparency dashboard',
+                            'Structured news and updates publishing',
+                            'Event planning and registration management',
+                            'Impact-led photo gallery',
+                            'Direct contact and inquiry workflows',
+                            'Social channel integration'
                         ],
                         challenges: 'Creating a secure donation system with transparent fund tracking.',
                         results: '500+ active volunteers, successful donation campaigns, increased community engagement.'
@@ -527,14 +537,14 @@
                         description: 'Professional trading platform for medical equipment and electronics.',
                         technologies: ['E-commerce Platform', 'WhatsApp API', 'React', 'Node.js', 'MongoDB'],
                         features: [
-                            'Product catalog management',
-                            'WhatsApp business integration',
-                            'Inquiry management system',
-                            'Multi-language support',
-                            'Payment gateway integration',
-                            'Inventory management',
-                            'Customer reviews',
-                            'Analytics dashboard'
+                            'Structured catalog for medical equipment and electronics',
+                            'WhatsApp-powered product inquiries',
+                            'Lead and inquiry management workflow',
+                            'Multi-language product presentation',
+                            'Integrated payment workflow',
+                            'Inventory visibility and management',
+                            'Customer feedback and review surfaces',
+                            'Analytics for product and inquiry performance'
                         ],
                         challenges: 'Integrating WhatsApp API for seamless customer communication.',
                         results: '1000+ products listed, 50+ countries reached, significant increase in international sales.'
@@ -544,14 +554,14 @@
                         description: 'Educational consultancy for Nepali students pursuing Japanese universities.',
                         technologies: ['WordPress', 'PHP', 'Analytics', 'CRM Integration', 'MySQL'],
                         features: [
-                            'University admission guidance',
-                            'Visa application support',
-                            'Japanese language courses',
-                            'Career counseling',
-                            'Student testimonials',
-                            'Application tracking',
-                            'Document verification',
-                            'Success stories'
+                            'University discovery and admission guidance',
+                            'Visa application support workflow',
+                            'Japanese language course presentation',
+                            'Career guidance and counseling pathways',
+                            'Student proof points and testimonials',
+                            'Application progress tracking',
+                            'Document review and verification workflow',
+                            'Outcome-focused success stories'
                         ],
                         challenges: 'Managing complex visa application processes and keeping up with changing requirements.',
                         results: '200+ successful student placements, 95% visa success rate, partnerships with 20+ Japanese universities.'
@@ -561,14 +571,14 @@
                         description: 'Diversified business group website showcasing multiple industries.',
                         technologies: ['Corporate CMS', 'PHP', 'MySQL', 'JavaScript', 'CSS3'],
                         features: [
-                            'Multi-sector portfolio',
-                            'Company history timeline',
-                            'Leadership profiles',
-                            'Industry showcases',
-                            'News and announcements',
-                            'Career opportunities',
-                            'Contact and locations',
-                            'Business solutions'
+                            'Multi-sector corporate information architecture',
+                            'Company history and milestones timeline',
+                            'Leadership and organizational profiles',
+                            'Industry-specific service showcases',
+                            'News and announcement publishing',
+                            'Career and recruitment information',
+                            'Contact and location discovery',
+                            'Business solution presentation'
                         ],
                         challenges: 'Presenting diverse business sectors in a cohesive and engaging manner.',
                         results: 'Enhanced brand visibility, increased business inquiries, improved stakeholder communication.'
@@ -578,11 +588,11 @@
                         description: 'Professional construction company in Nepal offering residential and commercial construction, earthquake-resistant design, interior design, and project management.',
                         technologies: ['Construction', 'Project Management', 'Architecture', 'Site Supervision'],
                         features: [
-                            'Residential & commercial construction',
-                            'Earthquake-resistant building design',
-                            'Interior design and renovation',
-                            'Project planning & management',
-                            'Client communication and timelines'
+                            'Residential and commercial build portfolios',
+                            'Earthquake-resistant design presentation',
+                            'Interior design and renovation services',
+                            'Project planning and delivery workflow',
+                            'Client communication and progress visibility'
                         ],
                         challenges: 'Coordinating multi-discipline teams while ensuring safety and on-time delivery.',
                         results: 'High-quality builds with client-focused project management and enhanced safety compliance.'
@@ -592,11 +602,11 @@
                         description: 'A community platform that connects influencers, creators, and entrepreneurs focused on authentic engagement, collaboration, and growth.',
                         technologies: ['Community Platform', 'CMS', 'Social Integration', 'Membership'],
                         features: [
-                            'Creator profiles and galleries',
-                            'Collaboration tools and messages',
-                            'Membership and premium communities',
-                            'Events and gallery features',
-                            'Contact and support channels'
+                            'Creator profiles and portfolio galleries',
+                            'Collaboration and direct messaging workflows',
+                            'Membership and premium community access',
+                            'Event and community gallery publishing',
+                            'Support and partnership inquiry channels'
                         ],
                         challenges: 'Maintaining authentic community engagement while scaling platform features.',
                         results: 'A growing influencer network with tools for collaboration and audience growth.'
@@ -606,41 +616,42 @@
                         description: 'Comprehensive real estate platform for property listings, sales, and management in Nepal.',
                         technologies: ['Real Estate Platform', 'Property Management', 'Web Development', 'Database'],
                         features: [
-                            'Property listings and search',
-                            'Sales and rental management',
-                            'Client inquiry system',
-                            'Property valuation tools',
-                            'User dashboards',
-                            'Mobile-responsive design'
+                            'Searchable property listing experience',
+                            'Sales and rental management workflows',
+                            'Structured client inquiry capture',
+                            'Property valuation and information tools',
+                            'User dashboards for property activity',
+                            'Responsive property discovery experience'
                         ],
                         challenges: 'Integrating real-time property data and ensuring accurate listings.',
                         results: 'Streamlined property transactions and increased client engagement in the Nepali real estate market.'
                     },
                     'downdetector-me': {
                         title: 'Downdetector.me',
-                        description: 'An automated status monitoring engine and programmatic SEO platform that tracks 9,600+ global and local digital endpoints, then turns incidents into fast, searchable status pages.',
-                        technologies: ['PHP 8', 'MySQL indexing', 'Multi-threaded cURL', 'Discord Webhooks', 'XML Sitemaps'],
-                        features: [
-                            '50 concurrent endpoint checks per 5-minute cycle',
-                            'Discord webhook alert dispatcher',
-                            'Dynamic inline SVG badge generator',
-                            'Clean .htaccess routing',
-                            'Programmatic SEO status architecture',
-                            'Responsive dark/light mode interface'
+                        description: 'An automated status-monitoring platform built to track 9,600+ global and local digital endpoints, handling background concurrency and automated search engine indexation without server bottlenecks.',
+                        technologyGroups: [
+                            { label: 'Backend', items: ['PHP 8', 'MySQL (Indexed Time-Series Data)'] },
+                            { label: 'Automation', items: ['Multi-threaded cURL batching', 'Background Cron Workflows'] },
+                            { label: 'Integrations & SEO', items: ['Discord Webhook API', 'Programmatic SEO Schema Architecture', 'Dynamic XML Sitemaps'] }
                         ],
-                        challenges: 'Keeping high-frequency checks fast and reliable while scaling to thousands of monitored endpoints and preserving SEO-friendly routing.',
-                        results: 'A production-ready uptime platform with automated incident alerts, resilient endpoint monitoring, and search-optimized status pages.'
+                        features: [
+                            'Concurrency and queue management: batched background queue processing 50 concurrent endpoint checks per 5-minute cycle without exhausting shared infrastructure resources',
+                            'Automated incident dispatcher: zero-login webhook notifications that evaluate state changes and trigger Discord alerts on downtime or recovery',
+                            'Programmatic SEO pipeline: dynamic JSON-LD structured data and XML sitemaps that scale organic search visibility across thousands of domain records'
+                        ],
+                        challenges: 'Designing a high-throughput monitoring workflow that keeps thousands of endpoint checks reliable, efficient, and indexable on shared infrastructure.',
+                        results: 'A production-ready telemetry platform built for high-throughput tracking, automated alerting, and search-optimized status reporting.'
                     },
                     'totalgpa': {
                         title: 'TotalGPA',
                         description: 'An academic utility platform that helps students calculate, understand, and manage their GPA information through a fast, focused web experience.',
                         technologies: ['PHP', 'MySQL', 'JavaScript', 'Responsive UI', 'SEO'],
                         features: [
-                            'GPA calculation tools',
+                            'GPA calculation workflows',
                             'Academic result organization',
-                            'Fast PHP and MySQL backend',
-                            'Clear student-focused interface',
-                            'Responsive mobile experience',
+                            'Fast PHP and MySQL data processing',
+                            'Student-focused information architecture',
+                            'Responsive academic utility experience',
                             'Search-friendly content structure'
                         ],
                         challenges: 'Presenting academic calculations clearly while keeping the experience lightweight and easy to use on smaller screens.',
@@ -653,23 +664,36 @@
                     lastFocusedElement = document.activeElement;
                     modalTitle.textContent = project.title;
                     modalBody.innerHTML = `
-                        <div class="project-detail-content">
+                        <div class="project-detail-content project-detail-${projectId}">
                             <div class="detail-section">
                                 <h4>Project Overview</h4>
                                 <p>${project.description}</p>
                             </div>
 
                             <div class="detail-section">
-                                <h4>Technologies Used</h4>
-                                <div class="tech-list">
-                                    ${project.technologies.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
-                                </div>
+                                <h4>Core Technologies</h4>
+                                ${project.technologyGroups ? `
+                                    <div class="technology-groups">
+                                        ${project.technologyGroups.map(group => `
+                                            <div class="technology-group">
+                                                <span class="technology-group-label">${group.label}</span>
+                                                <div class="tech-list">
+                                                    ${group.items.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                ` : `
+                                    <div class="tech-list">
+                                        ${project.technologies.map(tech => `<span class="tech-item">${tech}</span>`).join('')}
+                                    </div>
+                                `}
                             </div>
 
                             <div class="detail-section">
-                                <h4>Key Features</h4>
+                                <h4>Key Engineering Highlights</h4>
                                 <ul class="features-list">
-                                    ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                                    ${project.features.map(feature => `<li>${formatFeature(feature)}</li>`).join('')}
                                 </ul>
                             </div>
 
@@ -679,7 +703,7 @@
                             </div>
 
                             <div class="detail-section">
-                                <h4>Results & Impact</h4>
+                                <h4>Impact</h4>
                                 <p>${project.results}</p>
                             </div>
                         </div>
